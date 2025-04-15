@@ -1,0 +1,82 @@
+/* Gaya umum halaman */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+.content {
+  background-color: rgba(255, 255, 255, 0.5); /* Warna hitam transparan */
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Konten utama */
+.content h1 {
+  color: black;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(3, 3, 3);
+  border: 2px solid white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Teks footer */
+.footer-text {
+  margin-top: 40px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* Tombol musik pojok kanan bawah */
+#music-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  padding: 10px 15px;
+  background-color: rgba(244, 236, 236, 0.5);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#music-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

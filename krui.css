@@ -1,0 +1,482 @@
+/* === Global === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+  }
+  
+  h2 {
+    font-weight: 700;
+    color: #006699;
+  }
+  
+  /* === Navbar === */
+  /* === Navbar === */
+/* === Sticky Navbar === */
+.navbar {
+    position: fixed;       /* Membuat navbar tetap di atas */
+    top: 0;                /* Menempelkannya ke bagian atas browser */
+    width: 100%;           /* Agar navbar penuh lebar */
+    z-index: 999;          /* Supaya tidak ketutup elemen lain */
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0;      /* Hilangkan radius saat fixed biar rapi */
+  }
+  
+
+/* === Navbar Brand === */
+.navbar-brand {
+  color: #040404;                /* Warna teks brand */
+  font-weight: bold;          /* Menebalkan font */
+  font-size: 1.5rem;          /* Ukuran font lebih besar */
+  text-transform: uppercase;  /* Membuat teks menjadi huruf kapital */
+  transition: color 0.3s ease; /* Efek transisi untuk warna */
+}
+
+.navbar-brand:hover {
+  color: #ffcc00;             /* Warna saat hover */
+}
+
+/* === Navbar Link === */
+.navbar-nav .nav-link {
+  color: #000000;                /* Warna link */
+  font-size: 1.1rem;          /* Ukuran font link */
+  margin-right: 20px;         /* Jarak antar link */
+  transition: color 0.3s ease; /* Efek transisi untuk warna */
+}
+
+.navbar-nav .nav-link.active {
+  color: #000000;             /* Warna link saat aktif */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffcc00;             /* Warna saat hover */
+}
+
+/* === Navbar Dropdown === */
+.navbar-nav .nav-item.dropdown .dropdown-menu {
+  background-color: #003366;  /* Latar belakang menu dropdown */
+  border: none;               /* Menghilangkan border dropdown */
+}
+
+.navbar-nav .nav-item.dropdown .dropdown-item {
+  color: #fff;                /* Warna item dropdown */
+  font-size: 1rem;            /* Ukuran font item dropdown */
+  padding: 10px 20px;         /* Padding item dropdown */
+}
+
+.navbar-nav .nav-item.dropdown .dropdown-item:hover {
+  background-color: #ffcc00;  /* Warna saat hover pada dropdown */
+  color: #003366;             /* Warna teks saat hover */
+}
+
+/* === Navbar Search Input === */
+.navbar form .form-control {
+  border-radius: 25px;        /* Membuat form search lebih bulat */
+  border: 1px solid #006699;  /* Border warna biru */
+}
+
+.navbar form .btn-outline-success {
+  border-radius: 25px;        /* Membuat button lebih bulat */
+  color: #003366;             /* Warna teks button */
+  border: 1px solid #003366;  /* Border button */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar form .btn-outline-success:hover {
+  background-color: #003366;  /* Warna latar belakang button saat hover */
+  color: #fff;                /* Warna teks button saat hover */
+}
+  
+/* === Navbar Toggler === */
+.navbar-toggler {
+  border-color: #fff;        /* Warna border tombol navbar */
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;    /* Warna ikon navbar toggler */
+}
+
+  
+  /* === Carousel === */
+  /* === Carousel Container === */
+#carouselExampleIndicators {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  /* === Carousel Images === */
+  .carousel-item img {
+    width: 100%;              /* Full width */
+    height: 830px;            /* Atur tinggi gambar */
+    object-fit: cover;        /* Crop gambar agar menutupi area tanpa merusak rasio */
+    border-radius: 8px;
+  }
+  
+  /* === Carousel Indicators (dots) === */
+  .carousel-indicators button {
+    background-color: #006699; /* Warna tombol dot */
+    border-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #004d66;  /* Warna saat dot aktif */
+  }
+  
+  /* === Carousel Controls (Prev & Next Buttons) === */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #006699;  /* Warna ikon panah */
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+  /* === Button Hover Effects === */
+  .carousel-control-prev-icon:hover,
+  .carousel-control-next-icon:hover {
+    background-color: #004d66;  /* Warna saat hover */
+  }
+  
+  /* === Make Carousel Responsive === */
+  @media (max-width: 768px) {
+    .carousel-item img {
+      height: 300px;           /* Sesuaikan tinggi gambar pada perangkat mobile */
+    }
+  }
+  
+  
+  
+  /* === Tentang Pesisir Barat === */
+/* Tentang Pesisir Barat Section */
+.tentang-section {
+    background-color: #f8f9fa; /* Warna latar soft */
+    padding: 60px 20px;
+  }
+  
+  .tentang-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .tentang-section p {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: justify; /* Biar rata kiri kanan */
+  }
+  
+  /* === Destinasi Wisata === */
+  section.py-5 {
+    padding-top: 60px;             /* Padding atas */
+    padding-bottom: 60px;          /* Padding bawah */
+  }
+  
+  section.py-5 h2 {
+    font-size: 2.5rem;             /* Ukuran font judul */
+    font-weight: bold;             /* Tebalkan judul */
+    color: #003366;                /* Warna teks judul */
+    margin-bottom: 30px;           /* Jarak bawah judul */
+  }
+  
+  .card {
+    border-radius: 10px;           /* Sudut card lebih melengkung */
+    overflow: hidden;              /* Mencegah elemen keluar dari batas card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut pada card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);   /* Efek terangkat saat hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
+  }
+  
+  .card-img-top {
+    width: 100%;                   /* Lebar gambar menyesuaikan lebar card */
+    height: 400px;                 /* Tinggi gambar tetap */
+    object-fit: cover;             /* Menjaga proporsi gambar */
+  }
+  
+  .card-body {
+    padding: 20px;                 /* Padding dalam card */
+  }
+  
+  .card-title {
+    font-size: 1.25rem;            /* Ukuran font judul card */
+    font-weight: bold;             /* Tebalkan judul card */
+    color: #003366;                /* Warna teks judul card */
+    margin-bottom: 10px;           /* Jarak bawah judul card */
+  }
+  
+  .card-text {
+    font-size: 1rem;               /* Ukuran font deskripsi card */
+    color: #555;                   /* Warna teks deskripsi */
+    line-height: 1.5;              /* Jarak antar baris teks */
+  }
+  
+  /* === Responsif untuk Destinasi Wisata === */
+  @media (max-width: 768px) {
+    .row-cols-md-3 {
+      row-gap: 30px;               /* Menambahkan jarak antar kolom pada tampilan mobile */
+    }
+  
+    .card-body {
+      padding: 15px;               /* Mengurangi padding card pada tampilan mobile */
+    }
+  
+    .card-title {
+      font-size: 1.125rem;          /* Ukuran font judul lebih kecil pada mobile */
+    }
+  
+    .card-text {
+      font-size: 0.875rem;          /* Ukuran font deskripsi lebih kecil pada mobile */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-img-top {
+      height: 180px;                /* Mengurangi tinggi gambar pada mobile */
+    }
+  
+    .card-title {
+      font-size: 1rem;              /* Ukuran font judul lebih kecil pada mobile */
+    }
+  
+    .card-text {
+      font-size: 0.875rem;          /* Ukuran font deskripsi lebih kecil pada mobile */
+    }
+  }
+  
+  
+  /* === Aktivitas Wisata === */
+section.py-5.bg-light {
+    background-color: #f8f9fa;    /* Latar belakang abu-abu muda */
+    padding-top: 60px;             /* Padding atas */
+    padding-bottom: 60px;          /* Padding bawah */
+  }
+  
+  section.py-5.bg-light h2 {
+    font-size: 2.5rem;             /* Ukuran font judul */
+    font-weight: bold;             /* Tebalkan judul */
+    color: #003366;                /* Warna teks judul */
+    margin-bottom: 30px;           /* Jarak bawah judul */
+  }
+  
+  section.py-5.bg-light .row {
+    display: flex;
+    justify-content: center;       /* Menyusun kolom di tengah */
+    align-items: center;           /* Menyusun kolom secara vertikal di tengah */
+  }
+  
+  section.py-5.bg-light .col-md-4 {
+    display: flex;
+    flex-direction: column;        /* Menyusun elemen dalam kolom secara vertikal */
+    align-items: center;           /* Menyusun gambar dan teks di tengah */
+    margin-bottom: 30px;           /* Jarak bawah untuk setiap kolom */
+  }
+  
+  section.py-5.bg-light img {
+    border-radius: 50%;            /* Membuat gambar bulat */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut pada gambar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
+  }
+  
+  section.py-5.bg-light img:hover {
+    transform: scale(1.1);         /* Efek zoom saat hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
+  }
+  
+  section.py-5.bg-light h5 {
+    font-size: 2rem;            /* Ukuran font judul aktivitas */
+    font-weight: bold;             /* Tebalkan judul aktivitas */
+    color: #003366;                /* Warna teks judul aktivitas */
+    margin-top: 15px;              /* Jarak atas judul aktivitas */
+  }
+  
+  section.py-5.bg-light p {
+    font-size: 1rem;               /* Ukuran font deskripsi aktivitas */
+    color: #555;                   /* Warna teks deskripsi */
+    line-height: 1.5;              /* Jarak antar baris teks */
+    text-align: justify;            /* Pusatkan teks deskripsi */
+    max-width: 250px;              /* Maksimal lebar teks deskripsi */
+    margin: 0 auto;                /* Pusatkan paragraf */
+  }
+
+ 
+  
+  /* === Responsif untuk Aktivitas Wisata === */
+  @media (max-width: 768px) {
+    section.py-5.bg-light .col-md-4 {
+      margin-bottom: 20px;         /* Mengurangi jarak bawah kolom pada tampilan mobile */
+    }
+  
+    section.py-5.bg-light h5 {
+      font-size: 1.125rem;          /* Ukuran font judul lebih kecil pada mobile */
+    }
+  
+    section.py-5.bg-light p {
+      font-size: 0.875rem;          /* Ukuran font deskripsi lebih kecil pada mobile */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    section.py-5.bg-light img {
+      width: 80px;                 /* Mengurangi ukuran gambar pada tampilan mobile */
+      height: 80px;                /* Mengurangi ukuran gambar pada tampilan mobile */
+    }
+  
+    section.py-5.bg-light h5 {
+      font-size: 1rem;             /* Ukuran font judul lebih kecil pada mobile */
+    }
+  
+    section.py-5.bg-light p {
+      font-size: 0.875rem;         /* Ukuran font deskripsi lebih kecil pada mobile */
+    }
+  }
+  
+  
+  /* === Testimoni === */
+  blockquote {
+    background-color: #fff;
+    padding: 20px;
+    border-left: 5px solid #006699;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  /* === Form === */
+  form input,
+  form textarea {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  form button {
+    background-color: #006699;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #004d66;
+  }
+  
+  /* === Footer === */
+  footer {
+    background-color: #002c3e;
+    color: #fff;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+
+  /* === Galeri Foto === */
+section .container h2 {
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 30px;
+  }
+  
+  .img-fluid {
+    width: 500%;
+    height: 400px;
+    object-fit: cover; /* Menjaga proporsi gambar tetap bagus */
+    border: 3px solid #f8f9fa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .img-fluid:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan saat hover */
+  }
+  
+  @media (max-width: 768px) {
+    .img-fluid {
+      height: 150px; /* Lebih pendek di layar kecil */
+    }
+  }
+  
+
+  /* apa kata mereka */
+  /* === Section Testimoni === */
+section.bg-light {
+    background-color: #f8f9fa;
+  }
+  
+  section h2 {
+    color: #003366;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  /* === Blockquote Styling === */
+  .blockquote {
+    background-color: #ffffff;
+    border-left: 5px solid #003366;
+    padding: 10px 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .blockquote:hover {
+    transform: translateY(-5px); /* efek hover naik sedikit */
+  }
+  
+  .blockquote p {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .blockquote-footer {
+    font-size:1rem;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  /* === Responsive Layout === */
+  @media (max-width: 768px) {
+    .blockquote {
+      margin-bottom: 20px;
+    }
+  }
+  
+
+  /* Tombol musik pojok kanan bawah */
+#music-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#music-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

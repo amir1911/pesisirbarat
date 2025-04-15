@@ -1,0 +1,58 @@
+
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wisata Lampung Selatan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="hero" style="position: relative; overflow: hidden;">
+    <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -1;">
+      <source src="pesbar2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="content">
+      <h1>Wisata Pesisir Barat</h1>
+      <p>di Provinsi Lampung, Indonesia, yang dikenal dengan keindahan alamnya, terutama pantai-pantai yang masih alami dan ombaknya yang cocok untuk berselancar. </p>
+      <a href="krui1.html" class="btn">Get Start</a>
+    </div>
+    <div class="footer-text">No Coding • No Replay • No Party</div>
+  </div>
+ <!-- Audio musik -->
+ <audio id="bgmusic" loop>
+  <source src="pwsbar2.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Tombol musik ON/OFF -->
+<button id="music-button" onclick="toggleMusic()">🎵 Putar Musik</button>
+
+<script>
+  const audio = document.getElementById('bgmusic');
+  const button = document.getElementById('music-button');
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (!isPlaying) {
+      
+      audio.play();
+      isPlaying = true;
+      button.innerHTML = "🔇 Matikan Musik";
+    } else {
+      audio.pause();
+      isPlaying = false;
+      button.innerHTML = "🎵 Putar Musik";
+    }
+  }
+</script>
+</body>
+</html>
+
+</body>
+</html>
