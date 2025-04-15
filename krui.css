@@ -257,91 +257,93 @@ body {
   
   
   /* === Aktivitas Wisata === */
-section.py-5.bg-light {
-    background-color: #f8f9fa;    /* Latar belakang abu-abu muda */
-    padding-top: 60px;             /* Padding atas */
-    padding-bottom: 60px;          /* Padding bawah */
+  section.py-5.bg-light {
+    background-color: #f8f9fa;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   
   section.py-5.bg-light h2 {
-    font-size: 2.5rem;             /* Ukuran font judul */
-    font-weight: bold;             /* Tebalkan judul */
-    color: #003366;                /* Warna teks judul */
-    margin-bottom: 30px;           /* Jarak bawah judul */
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 30px;
   }
   
   section.py-5.bg-light .row {
     display: flex;
-    justify-content: center;       /* Menyusun kolom di tengah */
-    align-items: center;           /* Menyusun kolom secara vertikal di tengah */
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
-  section.py-5.bg-light .col-md-4 {
+  section.py-5.bg-light [class*="col-"] {
     display: flex;
-    flex-direction: column;        /* Menyusun elemen dalam kolom secara vertikal */
-    align-items: center;           /* Menyusun gambar dan teks di tengah */
-    margin-bottom: 30px;           /* Jarak bawah untuk setiap kolom */
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
   }
   
   section.py-5.bg-light img {
-    border-radius: 50%;            /* Membuat gambar bulat */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut pada gambar */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   section.py-5.bg-light img:hover {
-    transform: scale(1.1);         /* Efek zoom saat hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   }
   
   section.py-5.bg-light h5 {
-    font-size: 2rem;            /* Ukuran font judul aktivitas */
-    font-weight: bold;             /* Tebalkan judul aktivitas */
-    color: #003366;                /* Warna teks judul aktivitas */
-    margin-top: 15px;              /* Jarak atas judul aktivitas */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366;
+    margin-top: 15px;
   }
   
   section.py-5.bg-light p {
-    font-size: 1rem;               /* Ukuran font deskripsi aktivitas */
-    color: #555;                   /* Warna teks deskripsi */
-    line-height: 1.5;              /* Jarak antar baris teks */
-    text-align: justify;            /* Pusatkan teks deskripsi */
-    max-width: 250px;              /* Maksimal lebar teks deskripsi */
-    margin: 0 auto;                /* Pusatkan paragraf */
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    text-align: justify;
+    max-width: 250px;
+    margin: 0 auto;
   }
-
- 
   
-  /* === Responsif untuk Aktivitas Wisata === */
+  /* Responsive untuk tablet */
   @media (max-width: 768px) {
-    section.py-5.bg-light .col-md-4 {
-      margin-bottom: 20px;         /* Mengurangi jarak bawah kolom pada tampilan mobile */
-    }
-  
     section.py-5.bg-light h5 {
-      font-size: 1.125rem;          /* Ukuran font judul lebih kecil pada mobile */
+      font-size: 1.25rem;
     }
   
     section.py-5.bg-light p {
-      font-size: 0.875rem;          /* Ukuran font deskripsi lebih kecil pada mobile */
+      font-size: 0.9rem;
     }
-  }
   
-  @media (max-width: 576px) {
     section.py-5.bg-light img {
-      width: 80px;                 /* Mengurangi ukuran gambar pada tampilan mobile */
-      height: 80px;                /* Mengurangi ukuran gambar pada tampilan mobile */
-    }
-  
-    section.py-5.bg-light h5 {
-      font-size: 1rem;             /* Ukuran font judul lebih kecil pada mobile */
-    }
-  
-    section.py-5.bg-light p {
-      font-size: 0.875rem;         /* Ukuran font deskripsi lebih kecil pada mobile */
+      width: 150px;
+      height: 150px;
     }
   }
   
+  /* Responsive untuk HP */
+  @media (max-width: 576px) {
+    section.py-5.bg-light h5 {
+      font-size: 1.1rem;
+    }
+  
+    section.py-5.bg-light p {
+      font-size: 0.85rem;
+    }
+  
+    section.py-5.bg-light img {
+      width: 120px;
+      height: 120px;
+    }
+  }
   
   /* === Testimoni === */
   blockquote {
