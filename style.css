@@ -80,3 +80,59 @@ body, html {
 #music-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+/* Media Queries untuk perangkat kecil seperti smartphone */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  #music-button {
+    font-size: 12px;
+    padding: 8px 12px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Media Queries untuk perangkat menengah seperti tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .content {
+    padding: 30px;
+    max-width: 80%;
+  }
+
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 16px;
+  }
+
+  #music-button {
+    font-size: 13px;
+    padding: 9px 13px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
