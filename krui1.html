@@ -8,48 +8,98 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <title>Bootstrap Example</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Montserrat untuk teks lain di navbar (opsional) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="krui.css">
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Pesisir Barat</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Destinasi</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Aktivitas
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Aktivitas</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Paket Wisata</a>
-              </li>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Pesisir Barat</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Wisata
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Pantai</a></li>
+              <li><a class="dropdown-item" href="#">Air Terjun</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Wisata Religi</a></li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeri.html">Galeri</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Penginapan</a>
+          </li>
+        </ul>
+        
+        <form class="d-flex me-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+  
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <i class="bi bi-person-circle"></i> Login
+        </button>  
+      </div>
+    </div>
+  </nav>
 
+  <!-- form login -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="proses_login.php" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login Pengunjung</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email atau Username</label>
+              <input type="text" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Kata Sandi</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
+              <label class="form-check-label" for="remember">Ingat saya</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right me-1"></i> Masuk</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- end form login -->
+
+    <!-- start carousel -->
       <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -76,7 +126,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
+  <!-- end carousel -->
       <!-- Tentang -->
       <section class="tentang-section">
         <div class="container">
@@ -86,48 +136,36 @@
           </p>
         </div>
       </section>
-      
-  
-  <!-- Destinasi Wisata -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Destinasi Populer</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="labuhanjukung.png" class="card-img-top" alt="Pantai Labuhan Jukung">
-            <div class="card-body">
-              <h5 class="card-title">Pantai Labuhan Jukung</h5>
-              <p class="card-text">Pantai Labuhan Jukung adalah destinasi wisata andalan di Pesisir Barat, Lampung, yang terkenal dengan pemandangan matahari terbenamnya yang menakjubkan. Pantai ini memiliki garis pantai yang panjang, pasir keemasan, dan  bersantai, hingga berswafoto. 
-                Keindahannya menarik wisatawan lokal maupun mancanegara sepanjang tahun.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="trip-ke-pulau-pisang-lampung.jpg" class="card-img-top" alt="Pantai Mandiri">
-            <div class="card-body">
-              <h5 class="card-title">Pulau Pisang</h5>
-              <p class="card-text">Pulau Pisang adalah sebuah pulau indah yang terletak di Kabupaten Pesisir Barat, Lampung. Dikenal dengan pasir putihnya yang lembut, laut biru jernih, serta suasana yang tenang, Pulau Pisang menjadi destinasi favorit untuk wisata bahari, snorkeling, dan eksplorasi budaya lokal yang masih kental. 
-                Pulau ini juga memiliki mercusuar bersejarah peninggalan Belanda yang menjadi ikon wisata.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="mandiri.jpg" class="card-img-top" alt="Pantai Tanjung Setia">
-            <div class="card-body">
-              <h5 class="card-title">Pantai Mandiri</h5>
-              <p class="card-text">Pantai Mandiri terletak di Pesisir Barat, Lampung, dan dikenal sebagai salah satu spot selancar terbaik di Indonesia. Dengan garis pantai yang luas dan ombak yang kuat, pantai ini sangat diminati oleh para peselancar dari dalam dan luar negeri. Keindahan alam yang masih alami, pasir putih, 
-                serta suasana yang tenang membuat Pantai Mandiri cocok untuk relaksasi maupun petualangan.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+     
+<!-- Top Penginapan -->
+<section class="py-5 bg-light popular-villa-section">
+  <div class="container">
+    <h2 class="text-center mb-4">Aktivitas Wisata Seru</h2>
+    <div class="row text-center g-4">
 
-  <!-- Aktivitas Wisata -->
+      <div class="col-12 col-md-4 mb-4 popular-villa-card">
+        <img src="th.jpg" class="img-fluid rounded mb-2" alt="Villa Sartika" style="width:100%; height:200px; object-fit:cover;">
+        <h5>Surfing</h5>
+        <p>Ombak besar di Tanjung Setia menantang para surfer dari seluruh dunia.</p>
+      </div>
+
+      <div class="col-12 col-md-4 mb-4 popular-villa-card">
+        <img src="River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg" class="img-fluid rounded mb-2" alt="Beocean Krui" style="width:100%; height:200px; object-fit:cover;">
+        <h5>River Tubing</h5>
+        <p>Aktivitas menyusuri sungai menggunakan ban besar yang mengapung di atas air.</p>
+      </div>
+
+      <div class="col-12 col-md-4 mb-4 popular-villa-card">
+        <img src="th (15).jpeg" class="img-fluid rounded mb-2" alt="Palma Beach Resort" style="width:100%; height:200px; object-fit:cover;">
+        <h5>Camping</h5>
+        <p>Bermalam di pinggir pantai dengan suara deburan ombak yang menenangkan.</p>
+       
+      </div>
+
+    </div>
+  </div>
+</section>
+      <!-- Aktivitas Wisata
   <section class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-4">Aktivitas Wisata Seru</h2>
@@ -149,52 +187,121 @@
         </div>
       </div>
     </div>
-  </section>
-  
-  
-  <!-- Galeri Foto -->
-  <section class="py-5">
+  </section> -->
+
+   <!-- Top Penginapan -->
+   <section class="py-5 bg-light popular-villa-section">
     <div class="container">
-      <h2 class="text-center mb-4">Galeri Foto</h2>
-      <div class="row row-cols-2 row-cols-md-4 g-3">
-        <div class="col"><img src="trip-ke-pulau-pisang-lampung.jpg" class="img-fluid rounded" alt="Galeri 1"></div>
-        <div class="col"><img src="mandiri1.jpg" class="img-fluid rounded" alt="Galeri 2"></div>
-        <div class="col"><img src="selalau.jpg" class="img-fluid rounded" alt="Galeri 3"></div>
-        <div class="col"><img src="mandiri3.jpg" class="img-fluid rounded" alt="Galeri 4"></div>
-        <div class="col"><img src="krui2.jpg" class="img-fluid rounded" alt="Galeri 4"></div>
-        <div class="col"><img src="krui3.jpg" class="img-fluid rounded" alt="Galeri 4"></div>
-        <div class="col"><img src="krui4.jpg" class="img-fluid rounded" alt="Galeri 4"></div>
-        <div class="col"><img src="krui5.jpg" class="img-fluid rounded" alt="Galeri 4"></div>
+      <h2 class="text-center mb-4">Rekomended Pantai</h2>
+      <div class="row text-center g-4">
+  
+        <div class="col-12 col-md-4 mb-4 popular-villa-card">
+          <img src="labuhanjkung.jpg" class="img-fluid rounded mb-2" alt="Villa Sartika" style="width:100%; height:200px; object-fit:cover;">
+          <h5>Labuhan Jukung</h5>
+          <a href="#" class="btn btn-outline-primary mt-2">Lihat Detail</a>
+        </div>
+  
+        <div class="col-12 col-md-4 mb-4 popular-villa-card">
+          <img src="trip-ke-pulau-pisang-lampung.jpg" class="img-fluid rounded mb-2" alt="Beocean Krui" style="width:100%; height:200px; object-fit:cover;">
+          <h5>Pulau Pisang</h5>
+          <a href="#" class="btn btn-outline-primary mt-2">Lihat Detail</a>
+        </div>
+  
+        <div class="col-12 col-md-4 mb-4 popular-villa-card">
+          <img src="pantaimandiri.jpg" class="img-fluid rounded mb-2" alt="Palma Beach Resort" style="width:100%; height:200px; object-fit:cover;">
+          <h5>Pantai Mandiri</h5>
+          <a href="#" class="btn btn-outline-primary mt-2">Lihat Detail</a>
+        </div>
+  
       </div>
     </div>
   </section>
   
-  <!-- Testimoni -->
-  <section class="py-5 bg-light">
+ <!-- Top Penginapan
+ <section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Populer Wisata</h2>
+    <div class="row text-center">
+      <div class="col-12 col-md-4 mb-4">
+        <img src="labuhanjukung.png" class="img-fluid rounded mb-2" alt="Surfing">
+        <h5>Labuhan Jukung</h5>
+       
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <img src="trip-ke-pulau-pisang-lampung.jpg" class="img-fluid rounded mb-2" alt="River Tubing">
+        <h5>Pulau Pisang</h5>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <img src="mandiri.jpg" class="img-fluid rounded mb-2" alt="Camping">
+        <h5>Pantai Mandiri</h5>      
+      </div>
+    </div>
+  </div>
+</section> -->
+
+  
+  <!-- Top Penginapan -->
+  <section class="py-5 bg-light popular-villa-section">
     <div class="container">
-      <h2 class="text-center mb-4">Apa Kata Mereka?</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <blockquote class="blockquote">
-            <p>"Pesisir Barat luar biasa! Pantainya bersih dan penduduknya ramah."</p>
-            <footer class="blockquote-footer">Andi, Jakarta</footer>
-          </blockquote>
+      <h2 class="text-center mb-4">Populer Villa</h2>
+      <div class="row text-center g-4">
+  
+        <div class="col-12 col-md-4 mb-4 popular-villa-card">
+          <img src="sartika.jpg" class="img-fluid rounded mb-2" alt="Villa Sartika" style="width:100%; height:200px; object-fit:cover;">
+          <h5>Sartika</h5>
+          <a href="#" class="btn btn-outline-primary mt-2">Lihat Detail</a>
         </div>
-        <div class="col-md-4">
-          <blockquote class="blockquote">
-            <p>"Pertama kali surfing di sini, dan langsung jatuh cinta!"</p>
-            <footer class="blockquote-footer">Sarah, Australia</footer>
-          </blockquote>
+  
+        <div class="col-12 col-md-4 mb-4 popular-villa-card">
+          <img src="beocean-krui.jpg" class="img-fluid rounded mb-2" alt="Beocean Krui" style="width:100%; height:200px; object-fit:cover;">
+          <h5>Beocean Krui</h5>
+          <a href="#" class="btn btn-outline-primary mt-2">Lihat Detail</a>
         </div>
-        <div class="col-md-4">
-          <blockquote class="blockquote">
-            <p>"Rekomendasi banget buat liburan keluarga dan healing dari kota."</p>
-            <footer class="blockquote-footer">Rina, Bandung</footer>
-          </blockquote>
+  
+        <div class="col-12 col-md-4 mb-4 popular-villa-card">
+          <img src="palma.jpg" class="img-fluid rounded mb-2" alt="Palma Beach Resort" style="width:100%; height:200px; object-fit:cover;">
+          <h5>Palma Beach Resort</h5>
+          <a href="#" class="btn btn-outline-primary mt-2">Lihat Detail</a>
         </div>
+  
       </div>
     </div>
   </section>
+  
+  
+  
+
+  
+  
+  <!-- <div class="container">
+    <header>
+        <h1 class="my-title">Member Of Zupazupa106</h1>
+    </header>
+
+  
+    <div class="members">
+        <div class="member" onclick="openModal('mandiri.jpg')">
+            <img src="mandiri.jpg" alt="Anggota 1">
+            <p>Amirullah</p>           
+        </div>
+    <div class="members">
+        <div class="member" onclick="openModal('mandiri.jpg')">
+            <img src="mandiri.jpg" alt="Anggota 1">
+            <p>Amirullah</p>           
+        </div>
+    <div class="members">
+        <div class="member" onclick="openModal('mandiri.jpg')">
+            <img src="mandiri.jpg" alt="Anggota 1">
+            <p>Amirullah</p>           
+        </div>
+
+       
+            
+        </div>
+    </div>
+</div>
+  
+   -->
   
   <!-- Form Kontak -->
   <section class="py-5">
@@ -230,7 +337,7 @@
   
   <!-- Footer -->
   <footer class="bg-black text-white text-center py-3">
-    <p>&copy; 2025 Pariwisata Pesisir Barat • Dibuat dengan ❤️ oleh Tim Web</p>
+    <p>&copy; 2025 Pariwisata Pesisir Barat • Dibuat  oleh AMR</p>
   </footer>
   
   <!-- Audio musik -->

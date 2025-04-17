@@ -13,6 +13,15 @@ body {
   /* === Navbar === */
   /* === Navbar === */
 /* === Sticky Navbar === */
+.navbar-brand {
+  font-family: 'Times New Roman', Times, serif, serif;
+  font-weight: 700;            /* 700 = bold untuk penekanan */
+  font-size:2rem;          /* sesuaikan besar kecilnya */
+  letter-spacing: 1px;         /* spasi huruf agak renggang */
+  color: #0d3b66;              /* warna biru tua, atau sesuaikan */
+  text-transform: uppercase;   /* semua huruf menjadi kapital */
+}
+
 .navbar {
     position: fixed;       /* Membuat navbar tetap di atas */
     top: 0;                /* Menempelkannya ke bagian atas browser */
@@ -35,7 +44,7 @@ body {
 }
 
 .navbar-brand:hover {
-  color: #ffcc00;             /* Warna saat hover */
+  color: #6378ff;             /* Warna saat hover */
 }
 
 /* === Navbar Link === */
@@ -51,7 +60,7 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-  color: #ffcc00;             /* Warna saat hover */
+  color: #3d5cf4;             /* Warna saat hover */
 }
 
 /* === Navbar Dropdown === */
@@ -151,208 +160,7 @@ body {
   
   
   
-  /* === Tentang Pesisir Barat === */
-/* Tentang Pesisir Barat Section */
-.tentang-section {
-    background-color: #f8f9fa; /* Warna latar soft */
-    padding: 60px 20px;
-  }
   
-  .tentang-section h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #2c3e50;
-  }
-  
-  .tentang-section p {
-    max-width: 1000px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    text-align: justify; /* Biar rata kiri kanan */
-  }
-  
-  /* === Destinasi Wisata === */
-  section.py-5 {
-    padding-top: 60px;             /* Padding atas */
-    padding-bottom: 60px;          /* Padding bawah */
-  }
-  
-  section.py-5 h2 {
-    font-size: 2.5rem;             /* Ukuran font judul */
-    font-weight: bold;             /* Tebalkan judul */
-    color: #003366;                /* Warna teks judul */
-    margin-bottom: 30px;           /* Jarak bawah judul */
-  }
-  
-  .card {
-    border-radius: 10px;           /* Sudut card lebih melengkung */
-    overflow: hidden;              /* Mencegah elemen keluar dari batas card */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut pada card */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);   /* Efek terangkat saat hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
-  }
-  
-  .card-img-top {
-    width: 100%;                   /* Lebar gambar menyesuaikan lebar card */
-    height: 400px;                 /* Tinggi gambar tetap */
-    object-fit: cover;             /* Menjaga proporsi gambar */
-  }
-  
-  .card-body {
-    padding: 20px;                 /* Padding dalam card */
-  }
-  
-  .card-title {
-    font-size: 1.25rem;            /* Ukuran font judul card */
-    font-weight: bold;             /* Tebalkan judul card */
-    color: #003366;                /* Warna teks judul card */
-    margin-bottom: 10px;           /* Jarak bawah judul card */
-  }
-  
-  .card-text {
-    font-size: 1rem;               /* Ukuran font deskripsi card */
-    color: #555;                   /* Warna teks deskripsi */
-    line-height: 1.5;              /* Jarak antar baris teks */
-  }
-  
-  /* === Responsif untuk Destinasi Wisata === */
-  @media (max-width: 768px) {
-    .row-cols-md-3 {
-      row-gap: 30px;               /* Menambahkan jarak antar kolom pada tampilan mobile */
-    }
-  
-    .card-body {
-      padding: 15px;               /* Mengurangi padding card pada tampilan mobile */
-    }
-  
-    .card-title {
-      font-size: 1.125rem;          /* Ukuran font judul lebih kecil pada mobile */
-    }
-  
-    .card-text {
-      font-size: 0.875rem;          /* Ukuran font deskripsi lebih kecil pada mobile */
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .card-img-top {
-      height: 180px;                /* Mengurangi tinggi gambar pada mobile */
-    }
-  
-    .card-title {
-      font-size: 1rem;              /* Ukuran font judul lebih kecil pada mobile */
-    }
-  
-    .card-text {
-      font-size: 0.875rem;          /* Ukuran font deskripsi lebih kecil pada mobile */
-    }
-  }
-  
-  
-  /* === Aktivitas Wisata === */
-  section.py-5.bg-light {
-    background-color: #f8f9fa;
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-  
-  section.py-5.bg-light h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #003366;
-    margin-bottom: 30px;
-  }
-  
-  section.py-5.bg-light .row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  section.py-5.bg-light [class*="col-"] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  section.py-5.bg-light img {
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  section.py-5.bg-light img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  }
-  
-  section.py-5.bg-light h5 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #003366;
-    margin-top: 15px;
-  }
-  
-  section.py-5.bg-light p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-    text-align: justify;
-    max-width: 250px;
-    margin: 0 auto;
-  }
-  
-  /* Responsive untuk tablet */
-  @media (max-width: 768px) {
-    section.py-5.bg-light h5 {
-      font-size: 1.25rem;
-    }
-  
-    section.py-5.bg-light p {
-      font-size: 0.9rem;
-    }
-  
-    section.py-5.bg-light img {
-      width: 150px;
-      height: 150px;
-    }
-  }
-  
-  /* Responsive untuk HP */
-  @media (max-width: 576px) {
-    section.py-5.bg-light h5 {
-      font-size: 1.1rem;
-    }
-  
-    section.py-5.bg-light p {
-      font-size: 0.85rem;
-    }
-  
-    section.py-5.bg-light img {
-      width: 120px;
-      height: 120px;
-    }
-  }
-  
-  /* === Testimoni === */
-  blockquote {
-    background-color: #fff;
-    padding: 20px;
-    border-left: 5px solid #006699;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
   
   /* === Form === */
   form input,
@@ -387,79 +195,9 @@ body {
   }
   
 
-  /* === Galeri Foto === */
-section .container h2 {
-    font-weight: bold;
-    color: #003366;
-    margin-bottom: 30px;
-  }
-  
-  .img-fluid {
-    width: 500%;
-    height: 400px;
-    object-fit: cover; /* Menjaga proporsi gambar tetap bagus */
-    border: 3px solid #f8f9fa;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .img-fluid:hover {
-    transform: scale(1.05); /* Efek zoom saat hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan saat hover */
-  }
-  
-  @media (max-width: 768px) {
-    .img-fluid {
-      height: 150px; /* Lebih pendek di layar kecil */
-    }
-  }
-  
 
-  /* apa kata mereka */
-  /* === Section Testimoni === */
-section.bg-light {
-    background-color: #f8f9fa;
-  }
+
   
-  section h2 {
-    color: #003366;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }
-  
-  /* === Blockquote Styling === */
-  .blockquote {
-    background-color: #ffffff;
-    border-left: 5px solid #003366;
-    padding: 10px 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-  }
-  
-  .blockquote:hover {
-    transform: translateY(-5px); /* efek hover naik sedikit */
-  }
-  
-  .blockquote p {
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .blockquote-footer {
-    font-size:1rem;
-    color: #666;
-    font-weight: 500;
-  }
-  
-  /* === Responsive Layout === */
-  @media (max-width: 768px) {
-    .blockquote {
-      margin-bottom: 20px;
-    }
-  }
   
 
   /* Tombol musik pojok kanan bawah */
@@ -481,4 +219,128 @@ section.bg-light {
 
 #music-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+/* isi galeri */
+.masonry-container {
+  column-count: 5; /* Membagi dalam 2 kolom */
+  column-gap: 50px;
+  padding: 10px;
+  width: 100%;
+  margin: auto;
+}
+
+/* Setiap item dalam Masonry */
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+  background: #1e1e1e; /* Warna dark mode */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px #f3f3f3bc;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.masonry-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(253, 220, 2, 0.8);
+}
+
+/* Gambar dalam Masonry */
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* Caption */
+.masonry-caption {
+  padding: 10px;
+  font-weight: bold;
+  color: #f8f8f8;
+  text-align: center;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .masonry-container {
+      column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-container {
+      column-count: 1;
+  }
+}
+h1 {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;      /* Libre Baskerville biasanya tersedia untuk 400 (regular) dan 700 (bold) */
+  font-style: italic;
+  text-align: center;    /* <— ini untuk center teks secara horizontal */
+}
+
+/* end galeri */
+
+
+/* Populer Villa Section */
+
+
+.popular-villa-section h2 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+}
+
+
+
+.popular-villa-card:hover {
+  transform: translateY(-5px);
+}
+
+.popular-villa-card img {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(182, 15, 15, 0.1);
+  width: 100%;
+  height: 100%;
+}
+
+.popular-villa-card img:hover {
+  transform: scale(1.02);
+}
+
+.popular-villa-card h5 {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 1.2rem;
+}
+
+.popular-villa-card .btn {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}
+
+/* Responsive spacing */
+@media (max-width: 767px) {
+  .popular-villa-card {
+    margin-bottom: 20px;
+  }
+
+  .popular-villa-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .popular-villa-card h5 {
+    font-size: 1.1rem;
+  }
 }
