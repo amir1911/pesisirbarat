@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesona Pantai Pesisir Barat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background-image: url('krui2.jpg'); /* atau .png, .webp, sesuai nama dan format file */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            background-color: #ff9900;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #e68a00;
+            transform: translateY(-2px);
+        }
+        
+        .beaches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .beach-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .beach-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .beach-img {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .beach-info {
+            padding: 1.5rem;
+        }
+        
+        h2 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .detail-container {
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .detail-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .detail-text {
+            line-height: 1.8;
+        }
+        
+        .detail-info {
+            margin-top: 1.5rem;
+        }
+        
+        .detail-info div {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .detail-info span:first-child {
+            font-weight: bold;
+            min-width: 120px;
+        }
+        
+        .back-btn {
+            background-color: transparent;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+        
+        .back-btn:hover {
+            background-color: #3f1ff5;
+        }
+        
+        footer {
+            background-color: #1e40af;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .detail-video {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .beaches-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); /* semi transparan agar teks terlihat jelas */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pesona Pantai Pesisir Barat</h1>
+        <p>Jelajahi Keindahan Pantai-Pantai Eksotis</p>
+    </header>
+    
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Temukan Keajaiban Pantai Pesisir Barat</h1>
+                <p>Nikmati keindahan ombak, pasir putih, dan ketenangan di pantai-pantai eksotis pesisir barat Indonesia yang mempesona</p>
+                <a href="pantai.html" class="btn">Jelajahi Pantai</a>
+            </div>
+        </div>
+        
+        <div id="beaches-list">
+            <h2>Pantai Populer</h2>
+            <p>Temukan pantai-pantai indah yang wajib Anda kunjungi di pesisir barat Indonesia</p>
+            
+            <div class="beaches-grid" id="beaches">
+                <!-- Pantai Labuhan Jukung -->
+                <div class="beach-card" onclick="showDetail('labuhan-jukung')">
+                    <img src="labuhanjkung.jpg" alt="Pantai Labuhan Jukung" class="beach-img">
+                    <div class="beach-info">
+                        <h2>Pantai Labuhan Jukung</h2>
+                        <div class="location">📍 Pesisir Barat, Lampung</div>
+                        <p class="description">Pantai terkenal di Krui dengan pemandangan sunset yang menakjubkan dan ombak yang cocok untuk berselancar.</p>
+                        <a href="labuhanjukung.html" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai Tanjung Setia -->
+                <div class="beach-card" onclick="showDetail('tanjung-setia')">
+                    <img src="tanjungsetia.jpg" alt="Pantai Tanjung Setia" class="beach-img">
+                    <div class="beach-info">
+                        <h2>Pantai Tanjung Setia</h2>
+                        <div class="location">📍 Lampung, Indonesia</div>
+                        <p class="description">Surga tersembunyi bagi para peselancar dengan ombak yang menantang dan pemandangan yang spektakuler.</p>
+                        <a href="tanjungsetia.html" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai Bukit Selalau -->
+                <div class="beach-card" onclick="showDetail('bukit-selalau')">
+                    <img src="bukitselalau.jpg" alt="Pantai Bukit Selalau" class="beach-img">
+                    <div class="beach-info">
+                        <h2>Pantai Bukit Selalau</h2>
+                        <div class="location">📍 Pesisir Barat, Lampung</div>
+                        <p class="description">Pantai indah dengan pasir putih yang diapit oleh bukit dan memiliki cagar alam yang menakjubkan.</p>
+                        <a href="bukitselalau.html" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai Batu Tihang -->
+                <div class="beach-card" onclick="showDetail('batu-tihang')">
+                    <img src="batutihang.jpg" alt="Pantai Batu Tihang" class="beach-img">
+                    <div class="beach-info">
+                        <h2>Pantai Batu Tihang</h2>
+                        <div class="location">📍 Pesisir Barat, Lampung</div>
+                        <p class="description">Pantai legendaris dengan hamparan pasir putih dan pemandangan bukit karang yang memikat.</p>
+                        <a href="batutihang.html" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai Mandiri -->
+                <div class="beach-card" onclick="showDetail('mandiri')">
+                    <img src="mandiri.jpg" alt="Pantai Mandiri" class="beach-img">
+                    <div class="beach-info">
+                        <h2>Pantai Mandiri</h2>
+                        <div class="location">📍 Pesisir Barat, Lampung</div>
+                        <p class="description">Pantai tersembunyi dengan formasi batu karang yang unik dan ombak yang cocok untuk berselancar.</p>
+                        <a href="mandiri.html" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai Tanjung Jati -->
+                <div class="beach-card" onclick="showDetail('tanjung-jati')">
+                    <img src="tanjungjati.jpg" alt="Pantai Tanjung Jati" class="beach-img">
+                    <div class="beach-info">
+                        <h2>Pantai Tanjung Jati</h2>
+                        <div class="location">📍 Pesisir Barat, Lampung</div>
+                        <p class="description">Pantai dengan ombak yang tenang cocok untuk peselancar pemula dan pemandangan sunset yang memukau.</p>
+                        <a href="tanjungjati.html" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detail Pantai Labuhan Jukung -->
+    
+    <script>
+        function showDetail(id) {
+            document.getElementById('beaches-list').style.display = 'none';
+            document.getElementById(id + '-detail').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        
+        function hideDetail(id) {
+            document.getElementById('beaches-list').style.display = 'block';
+            document.getElementById(id + '-detail').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

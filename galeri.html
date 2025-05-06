@@ -1,97 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <title>Document</title>
-    <link rel="stylesheet" href="krui.css">
+    <title>Galeri Pesisir Barat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #005c97, #363795);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("/api/placeholder/1600/400");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .my-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #005c97;
+            color: white;
+            border-color: #005c97;
+        }
+
+        .masonry-container {
+            column-count: 1;
+            column-gap: 15px;
+            padding: 20px;
+        }
+
+        @media (min-width: 576px) {
+            .masonry-container {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .masonry-container {
+                column-count: 3;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .masonry-container {
+                column-count: 4;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .masonry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .masonry-item:hover .img-overlay {
+            opacity: 1;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: 50px auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .modal-caption {
+            margin: 20px auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .modal-prev, .modal-next {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 20px;
+        }
+
+        .modal-prev:hover, .modal-next:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <h1 class="my-title">Galeri Pesisir Barat</h1>
+            <p class="subtitle">Keindahan dan Keunikan Pesisir Barat Lampung</p>
+        </div>
+    </header>
+
+    <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="pantai">Pantai</button>
+        <button class="filter-btn" data-filter="wisata">Wisata Alam</button>
+        <button class="filter-btn" data-filter="kuliner">Kuliner</button>
+        <button class="filter-btn" data-filter="budaya">Budaya</button>
+    </div>
     
-   <!-- Album Foto Kegiatan -->
-   <header>
-    <h1 class="my-title">Galeri Pesisir Barat</h1>
-</header>
+    <div class="masonry-container">
+        <div class="masonry-item" data-category="pantai" onclick="openModal('tanjungsetia.jpg', 'Pantai Tanjung Setia')">
+            <img src="tanjungsetia.jpg" alt="Pantai Tanjung Setia">
+            <div class="img-overlay">
+                <h3>Pantai Tanjung Setia</h3>
+                <p>Surga bagi para peselancar</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="pantai" onclick="openModal('labuhanjkung.jpg', 'Pantai Labuhan Jukung')">
+            <img src="labuhanjkung.jpg" alt="Pantai Labuhan Jukung">
+            <div class="img-overlay">
+                <h3>Pantai Labuhan Jukung</h3>
+                <p>Pantai dengan pemandangan sunset yang indah</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="wisata" onclick="openModal('trip-ke-pulau-pisang-lampung.jpg', 'Pulau Pisang')">
+            <img src="trip-ke-pulau-pisang-lampung.jpg" alt="Pulau Pisang">
+            <div class="img-overlay">
+                <h3>Pulau Pisang</h3>
+                <p>Pulau kecil dengan keindahan alam yang masih asri</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="wisata" onclick="openModal('River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg', 'River Tubing')">
+            <img src="River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg" alt="Sungai Way Biha">
+            <div class="img-overlay">
+                <h3>River Tubing Sungai Way Biha</h3>
+                <p>Petualangan seru di aliran sungai yang jernih</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/800/600', 'Pantai Mandiri')">
+            <img src="mandiri.jpg" alt="Pantai Mandiri">
+            <div class="img-overlay">
+                <h3>Pantai Mandiri</h3>
+                <p>Pantai dengan pasir putih dan air yang jernih</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="budaya" onclick="openModal('/api/placeholder/800/700', 'Kebudayaan Lampung')">
+            <img src="krui7.jpg" alt="Kebudayaan Lampung">
+            <div class="img-overlay">
+                <h3>Kebudayaan Pesisir Barat</h3>
+                <p>Warisan budaya yang kaya dan beragam</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/900/600', 'Krui')">
+            <img src="krui8.jpg" alt="Krui">
+            <div class="img-overlay">
+                <h3>Krui</h3>
+                <p>Ibukota Kabupaten Pesisir Barat</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="kuliner" onclick="openModal('/api/placeholder/800/600', 'Kuliner Pesisir Barat')">
+            <img src="bukitselalau.html" alt="Kuliner Pesisir Barat">
+            <div class="img-overlay">
+                <h3>Kuliner Khas</h3>
+                <p>Kelezatan makanan khas Pesisir Barat</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/800/900', 'Air Terjun')">
+            <img src="sartika.jpg" alt="Air Terjun">
+            <div class="img-overlay">
+                <h3>Air Terjun Way Lalaan</h3>
+                <p>Keindahan air terjun di tengah hutan</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/900/700', 'Pantai Tembakak')">
+            <img src="mandiri.jpg" alt="Pantai Tembakak">
+            <div class="img-overlay">
+                <h3>Pantai Tembakak</h3>
+                <p>Pantai dengan ombak yang tenang</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="budaya" onclick="openModal('/api/placeholder/800/800', 'Tari Tradisional')">
+            <img src="mandiri3.jpg" alt="Tari Tradisional">
+            <div class="img-overlay">
+                <h3>Tari Tradisional</h3>
+                <p>Kesenian tari khas Lampung</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/800/1000', 'Wisata Alam')">
+            <img src="tanjungjati.jpg" alt="Wisata Alam">
+            <div class="img-overlay">
+                <h3>Wisata Alam</h3>
+                <p>Keindahan alam Pesisir Barat</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/900/600', 'Pantai Karang Nyimbor')">
+            <img src="tanjungsetia.jpg" alt="Pantai Karang Nyimbor">
+            <div class="img-overlay">
+                <h3>Pantai Karang Nyimbor</h3>
+                <p>Pantai dengan formasi karang yang unik</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="kuliner" onclick="openModal('/api/placeholder/800/800', 'Seafood')">
+            <img src="bukitselalau.jpg" alt="Seafood">
+            <div class="img-overlay">
+                <h3>Seafood Segar</h3>
+                <p>Kelezatan hidangan laut Pesisir Barat</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/800/700', 'Taman Nasional')">
+            <img src="th (14).jpeg" alt="Taman Nasional">
+            <div class="img-overlay">
+                <h3>Taman Nasional Bukit Barisan Selatan</h3>
+                <p>Keanekaragaman hayati yang menakjubkan</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="budaya" onclick="openModal('/api/placeholder/800/600', 'Rumah Adat')">
+            <img src="bimbin.jpg" alt="Rumah Adat">
+            <div class="img-overlay">
+                <h3>Rumah Adat Lampung</h3>
+                <p>Arsitektur tradisional yang khas</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/800/800', 'Pantai Way Redak')">
+            <img src="batutihang.jpg" alt="Pantai Way Redak">
+            <div class="img-overlay">
+                <h3>Pantai Way Redak</h3>
+                <p>Pantai tersembunyi dengan keindahan alam yang masih asri</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/900/700', 'Pemandangan Alam')">
+            <img src="airterjun.jpg" alt="Pemandangan Alam">
+            <div class="img-overlay">
+                <h3>Pemandangan Alam</h3>
+                <p>Keindahan lanskap Pesisir Barat</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/800/900', 'Pantai Walur')">
+            <img src="makamgajahmada.jpeg" alt="Pantai Walur">
+            <div class="img-overlay">
+                <h3>Pantai Walur</h3>
+                <p>Pantai dengan tebing karang yang indah</p>
+            </div>
+        </div>
+        <div class="masonry-item" data-category="kuliner" onclick="openModal('/api/placeholder/800/600', 'Kuliner Tradisional')">
+            <img src="krui2.jpg" alt="Kuliner Tradisional">
+            <div class="img-overlay">
+                <h3>Kuliner Tradisional</h3>
+                <p>Kekayaan cita rasa masakan tradisional</p>
+            </div>
+        </div>
+    </div>
 
-<div class="masonry-container" onclick="openModal('img/foto11.jpg')">
-    <div class="masonry-item">
-        <img src="mandiri.jpg" alt="Kegiatan 1">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto12.jpg')">
-        <img src="mandiri1.jpg" alt="Kegiatan 2">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto13.jpg')">
-        <img src="mandiri3.jpg" alt="Kegiatan 3">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto14.jpg')">
-        <img src="labuhanjkung.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto1.jpg')">
-        <img src="krui1.html" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto2.jpg')">
-        <img src="krui2.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto3.jpg')">
-        <img src="krui4.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto4.jpg')">
-        <img src="krui5.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto5.jpg')">
-        <img src="krui6.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto6.jpg')">
-        <img src="krui7.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto7.jpg')">
-        <img src="krui8.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto8.jpg')">
-        <img src="krui9.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto9.jpg')">
-        <img src="trip-ke-pulau-pisang-lampung.jpg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto10.jpg')">
-        <img src="th (13).jpeg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto11.jpg')">
-        <img src="th (14).jpeg" alt="Kegiatan 4">
-    </div>
-    <div class="masonry-item" onclick="openModal('img/foto3.jpg')">
-        <img src="th (15).jpeg" alt="Kegiatan 4">
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <span class="modal-prev" onclick="changeImage(-1)">&#10094;</span>
+        <img class="modal-content" id="modalImage">
+        <span class="modal-next" onclick="changeImage(1)">&#10095;</span>
+        <div class="modal-caption" id="caption"></div>
     </div>
 
-    <div class="masonry-item" onclick="openModal('img/foto12.jpg')">
-        <img src="th.jpg" alt="Kegiatan 4">
-    </div>
+    <footer>
+        <p>&copy; 2025 Galeri Pesisir Barat | Eksplorasi Keindahan Pesisir Barat Lampung</p>
+    </footer>
 
-    <div class="masonry-item" onclick="openModal('img/foto16.jpg')">
-        <img src="River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg" alt="Kegiatan 4">
-    </div>
+    <script>
+        // Image modal functionality
+        let modalImages = [];
+        let currentImageIndex = 0;
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('caption');
 
-    <div class="masonry-item" onclick="openModal('img/foto17.jpg')">
-        <img src="krui3.jpg" alt="Kegiatan 4">
-    </div>
+        // Initialize modal images array
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.masonry-item');
+            items.forEach(function(item) {
+                const imgSrc = item.getAttribute('onclick').match(/openModal\(['"]([^'"]+)['"],\s*['"]([^'"]+)['"]\)/);
+                if (imgSrc && imgSrc.length >= 3) {
+                    modalImages.push({
+                        src: imgSrc[1],
+                        caption: imgSrc[2]
+                    });
+                }
+            });
+        });
 
-    <div class="masonry-item" onclick="openModal('img/foto18.jpg')">
-        <img src="krui4.jpg" alt="Kegiatan 4">
-    </div>
+        function openModal(imageSrc, caption) {
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            captionText.innerHTML = caption;
+            
+            // Find the index of the current image
+            for (let i = 0; i < modalImages.length; i++) {
+                if (modalImages[i].src === imageSrc) {
+                    currentImageIndex = i;
+                    break;
+                }
+            }
+            
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            
+            // Disable scrolling on body
+            document.body.style.overflow = 'hidden';
+        }
 
-    <div class="masonry-item" onclick="openModal('img/ciwi.jpg')">
-        <img src="krui7.jpg" alt="Kegiatan 4">
-    </div>
+        function closeModal() {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+            
+            // Enable scrolling on body
+            document.body.style.overflow = 'auto';
+        }
 
-    <div class="masonry-item">
-        <img src="krui5.jpg" alt="Kegiatan 4" onclick="openModal('img/ciwi3.jpg')">
-    </div>
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            // Loop back to the beginning or end
+            if (currentImageIndex >= modalImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = modalImages.length - 1;
+            }
+            
+            modalImg.classList.remove('fadeIn');
+            void modalImg.offsetWidth; // Trigger reflow
+            modalImg.classList.add('fadeIn');
+            
+            modalImg.src = modalImages[currentImageIndex].src;
+            captionText.innerHTML = modalImages[currentImageIndex].caption;
+        }
 
-    <div class="masonry-item" onclick="openModal('img/ciwi2.jpg')">
-        <img src="krui6.jpg" alt="Kegiatan 4">
-    </div>
-</div>
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
 
+        // Category filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Toggle active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter items
+                    const items = document.querySelectorAll('.masonry-item');
+                    
+                    items.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', function(event) {
+            if (modal.style.display === 'block') {
+                if (event.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (event.key === 'ArrowRight') {
+                    changeImage(1);
+                } else if (event.key === 'Escape') {
+                    closeModal();
+                }
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Religi Pesisir Barat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background-image: url('krui2.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            background-color: #1e40af;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        #religious-sites-list h2 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        #religious-sites-list > p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .site-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .site-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .site-img {
+            height: 500px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .site-card:hover .site-img {
+            transform: scale(1.05);
+        }
+        
+        .site-info {
+            padding: 1.5rem;
+        }
+        
+        .site-info h2 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        
+        .detail-container {
+            display: none;
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+        }
+        
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .detail-video {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .detail-text {
+            line-height: 1.8;
+        }
+        
+        .detail-text p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+        
+        .detail-info {
+            margin-top: 1.5rem;
+            background-color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .detail-info div {
+            display: flex;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        
+        .detail-info div:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .detail-info span:first-child {
+            font-weight: bold;
+            min-width: 120px;
+            color: #1e40af;
+        }
+        
+        .back-btn {
+            background-color: transparent;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+            padding: 8px 16px;
+        }
+        
+        .back-btn:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+            color: #e5e7eb;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .sites-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jelajahi Wisata Religi Pesisir Barat</h1>
+    </header>
+    
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Wisata Religi Pesisir Barat</h1>
+                <p>"Temukan kedamaian spiritual dan nilai sejarah di tempat-tempat ibadah bersejarah yang tersebar di sepanjang pesisir barat Indonesia."</p>
+                <a href="wisata-religi.html" class="btn">Mulai Perjalanan Spiritual</a>
+            </div>
+        </div>
+        
+        <div id="religious-sites-list">
+            <h2>Tempat Ibadah Bersejarah</h2>
+            <p>Temukan keindahan tempat ibadah dan situs-situs religi yang wajib dikunjungi di pesisir barat Indonesia</p>
+            
+            <div class="sites-grid" id="sites">
+                <!-- Masjid Al-Mujahidin -->
+                <div class="site-card" onclick="showDetail('masjid-mujahidin')">
+                    <img src="makamgajahmada.jpeg" alt="Masjid Al-Mujahidin" class="site-img">
+                    <div class="site-info">
+                        <h2>Pemakaman Gajah Mada</h2>
+                        <div class="location">📍 Krui, Pesisir Barat, Lampung</div>
+                        <p class="description">Masjid bersejarah tertua di Pesisir Barat dengan arsitektur khas Lampung dan ornamen kayu yang indah.</p>
+                        <button class="btn">Lihat Detail</button>
+                    </div>
+                </div>
+                
+                <!-- Makam Keramat Syech Aminullah -->
+                <div class="site-card" onclick="showDetail('makam-syech')">
+                    <img src="aminnullah.jpg" alt="Makam Keramat Syech Aminullah" class="site-img">
+                    <div class="site-info">
+                        <h2>Makam Keramat Syech Aminullah</h2>
+                        <div class="location">📍 Lemong, Pesisir Barat, Lampung</div>
+                        <p class="description">Makam ulama besar penyebar agama Islam di pesisir barat Lampung yang dihormati masyarakat sekitar.</p>
+                        <button class="btn">Lihat Detail</button>
+                    </div>
+                </div>
+                
+                <!-- Pura Luhur Uluwatu -->
+                <div class="site-card" onclick="showDetail('pura-uluwatu')">
+                    <img src="goamatu.jpg" alt="Pura Luhur Uluwatu" class="site-img">
+                    <div class="site-info">
+                        <h2>Gua Batu</h2>
+                        <div class="location">📍 Pesisir Barat, Lampung</div>
+                        <p class="description">Pura yang berdiri megah di atas tebing menghadap lautan, tempat ibadah umat Hindu dengan pemandangan spiritual menakjubkan.</p>
+                        <button class="btn">Lihat Detail</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detail Masjid Al-Mujahidin -->
+        <div id="masjid-mujahidin-detail" class="detail-container hidden">
+            <div class="detail-header">
+                <h2>Masjid Al-Mujahidin</h2>
+                <button class="btn back-btn" onclick="hideDetail('masjid-mujahidin')">Kembali</button>
+            </div>
+            
+            <div class="detail-content">
+                <div>
+                    <img src="KunkerMakamGajahMada_3 (1).jpg" alt="Masjid Al-Mujahidin" style="width: 100%; max-width: 600px; border-radius: 8px;">
+                    <p><a href="https://www.instagram.com/" target="_blank">Lihat di Instagram</a></p>
+                </div>
+                
+                <div class="detail-text">
+                    <p>Masjid Al-Mujahidin merupakan masjid tertua di Pesisir Barat yang dibangun sekitar tahun 1785. Masjid ini memiliki arsitektur khas Lampung dengan perpaduan unsur budaya Arab yang menjadi saksi bisu penyebaran Islam di wilayah ini.</p>
+                    <p>Ornamen kayu ukir dan kaligrafi indah menghiasi interior masjid. Hingga kini, masjid ini masih menjadi pusat kegiatan keagamaan dan budaya masyarakat setempat.</p>
+                    
+                    <div class="detail-info">
+                        <div><span>Lokasi:</span> Jl. Imam Bonjol, Krui, Pesisir Barat</div>
+                        <div><span>Tahun Berdiri:</span> Sekitar 1785</div>
+                        <div><span>Waktu Berkunjung:</span> 08:00 - 17:00 (kecuali waktu sholat)</div>
+                        <div><span>Pakaian:</span> Sopan dan menutup aurat</div>
+                        <div><span>Kegiatan:</span> Sholat, Ziarah, Belajar Sejarah</div>
+                        <div><span>Tips:</span> Datang pagi hari untuk menghindari keramaian</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detail Makam Keramat Syech Aminullah -->
+        <div id="makam-syech-detail" class="detail-container hidden">
+            <div class="detail-header">
+                <h2>Makam Keramat Syech Aminullah</h2>
+                <button class="btn back-btn" onclick="hideDetail('makam-syech')">Kembali</button>
+            </div>
+            <div class="detail-content">
+                <div>
+                    <img src="aminnullah.jpg" alt="Makam Keramat Syech Aminullah" style="width: 100%; max-width: 600px; border-radius: 8px;">
+                </div>
+                <div class="detail-text">
+                    <p>Makam Keramat Syech Aminullah merupakan situs ziarah yang dihormati oleh masyarakat Pesisir Barat. Beliau adalah ulama besar yang berperan penting dalam menyebarkan agama Islam di kawasan pesisir barat Lampung pada abad ke-17.</p>
+                    <p>Kompleks makam ini ramai dikunjungi peziarah terutama pada hari-hari besar Islam dan saat haul (peringatan wafat). Banyak yang datang untuk berdoa dan mendapatkan berkah.</p>
+                    
+                    <div class="detail-info">
+                        <div><span>Lokasi:</span> Desa Penengahan, Kec. Lemong, Pesisir Barat</div>
+                        <div><span>Tahun:</span> Abad ke-17</div>
+                        <div><span>Waktu Berkunjung:</span> 08:00 - 17:00 setiap hari</div>
+                        <div><span>Pakaian:</span> Sopan dan menutup aurat</div>
+                        <div><span>Kegiatan:</span> Ziarah, Berdoa, Haul tahunan</div>
+                        <div><span>Tips:</span> Hormati tradisi lokal saat berkunjung</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detail Pura Luhur Uluwatu -->
+        <div id="pura-uluwatu-detail" class="detail-container hidden">
+            <div class="detail-header">
+                <h2>Pura Luhur Batu Belah</h2>
+                <button class="btn back-btn" onclick="hideDetail('pura-uluwatu')">Kembali</button>
+            </div>
+            <div class="detail-content">
+                <div>
+                    <img src="goamatu.jpg" alt="Pura Luhur Batu Belah" style="width: 100%; max-width: 600px; border-radius: 8px;">
+                </div>
+                <div class="detail-text">
+                    <p>Pura Luhur Batu Belah adalah pura yang dibangun di atas tebing dengan pemandangan laut lepas yang memukau. Menjadi tempat ibadah utama bagi umat Hindu di wilayah pesisir barat.</p>
+                    <p>Arsitektur pura yang khas dengan ukiran-ukiran tradisional menjadikannya tidak hanya sebagai tempat ibadah tetapi juga destinasi wisata religi yang menarik. Upacara-upacara besar Hindu sering diselenggarakan di sini dengan keindahan alam sebagai latar belakangnya.</p>
+                    
+                    <div class="detail-info">
+                        <div><span>Lokasi:</span> Desa Tanjung Setia, Pesisir Barat</div>
+                        <div><span>Tahun Berdiri:</span> Sekitar 1800-an</div>
+                        <div><span>Waktu Berkunjung:</span> 08:00 - 18:00 (kecuali saat upacara)</div>
+                        <div><span>Pakaian:</span> Sopan, disediakan kain kamben/sarung untuk pengunjung</div>
+                        <div><span>Kegiatan:</span> Ibadah, Upacara adat, Menikmati pemandangan</div>
+                        <div><span>Tips:</span> Datang saat sunset untuk pemandangan terbaik</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <h3>Wisata Religi Pesisir Barat</h3>
+        <p>Jelajahi keindahan dan kedamaian spiritual di pesisir barat Indonesia</p>
+        <p>&copy; 2025 Pesona Indonesia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showDetail(id) {
+            document.getElementById('religious-sites-list').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('religious-sites-list').style.display = 'none';
+                const detailElement = document.getElementById(id + '-detail');
+                detailElement.style.display = 'block';
+                setTimeout(() => {
+                    detailElement.style.opacity = '1';
+                }, 50);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        }
+
+        function hideDetail(id) {
+            const detailElement = document.getElementById(id + '-detail');
+            detailElement.style.opacity = '0';
+            setTimeout(() => {
+                detailElement.style.display = 'none';
+                const sitesList = document.getElementById('religious-sites-list');
+                sitesList.style.display = 'block';
+                setTimeout(() => {
+                    sitesList.style.opacity = '1';
+                }, 50);
+            }, 300);
+        }
+
+        // Inject CSS transisi
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                #religious-sites-list, .detail-container {
+                    transition: opacity 0.3s ease;
+                }
+                .site-card {
+                    opacity: 0;
+                    animation: fadeInCard 0.5s forwards;
+                }
+                @keyframes fadeInCard {
+                    to { opacity: 1; }
+                }
+                .sites-grid .site-card:nth-child(1) { animation-delay: 0.1s; }
+                .sites-grid .site-card:nth-child(2) { animation-delay: 0.2s; }
+                .sites-grid .site-card:nth-child(3) { animation-delay: 0.3s; }
+            </style>
+        `);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.album, .members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Efek Kenyalan (Bounce) pada Hover Foto */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.photo, .member {
+    background: #1e1e1e; /* Warna dark mode */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #f3f3f3bc;
+    margin: 10px;
+    padding: 10px;
+    width: 220px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo:hover, .member:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(253, 220, 2, 0.8);
+    animation: bounce 0.5s ease-in-out;
+}
+
+/* Foto */
+.photo img, .member img {
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Nama */
+.photo p, .member p {
+    color: #f8f8f8;
+    font-weight: bold;
+}
+
+/* Styling untuk link Instagram */
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #E4405F; /* Warna khas Instagram */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Styling untuk ikon Instagram */
+.instagram-link i {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+/* Hover effect */
+.instagram-link:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Animasi Zoom In saat Modal Foto Dibuka */
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.modal-content {
+    margin-top: 10%;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Animasi Tombol */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

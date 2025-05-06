@@ -1,138 +1,190 @@
-/* Gaya umum halaman */
-body, html {
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset dan Base Styles */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-}
-.content {
-  background-color: rgba(255, 255, 255, 0.5); /* Warna hitam transparan */
-  padding: 10px;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: auto;
+  box-sizing: border-box;
 }
 
-/* Hero section */
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  color: #fff;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Hero Section dengan Video Background */
 .hero {
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  position: relative;
 }
 
-/* Konten utama */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Overlay gelap untuk meningkatkan keterbacaan teks */
+  z-index: 0;
+}
+
+/* Konten Hero */
+.content {
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
 .content h1 {
-  color: black;
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: 1px;
 }
 
 .content p {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: black;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-weight: 300;
 }
 
+/* Tombol Call-to-Action */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: rgb(3, 3, 3);
-  border: 2px solid white;
-  border-radius: 8px;
+  background: linear-gradient(45deg, #0077b6, #00b4d8);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: bold;
   transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
 }
 
 .btn:hover {
-  background-color: white;
-  color: black;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  border: 2px solid #fff;
 }
 
-/* Teks footer */
+/* Footer Text */
 .footer-text {
-  margin-top: 40px;
-  font-size: 16px;
+  position: absolute;
+  bottom: 30px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
   opacity: 0.8;
+  z-index: 1;
+  font-style: italic;
+  animation: pulse 2s infinite;
 }
 
-/* Tombol musik pojok kanan bawah */
+/* Tombol Musik */
 #music-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-  padding: 10px 15px;
-  background-color: rgba(244, 236, 236, 0.5);
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 20px;
+  background: rgba(0, 119, 182, 0.8);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #music-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 180, 216, 0.9);
+  transform: scale(1.05);
 }
 
-/* Media Queries untuk perangkat kecil seperti smartphone */
+/* Animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Media Queries untuk Responsivitas */
 @media (max-width: 768px) {
-  .content {
-    padding: 20px;
-    max-width: 90%;
-  }
-
   .content h1 {
-    font-size: 32px;
+    font-size: 2.8rem;
   }
-
+  
   .content p {
-    font-size: 16px;
+    font-size: 1rem;
   }
-
+  
   .btn {
-    padding: 8px 16px;
-    font-size: 14px;
+    padding: 12px 28px;
+    font-size: 1rem;
   }
-
+  
   #music-button {
-    font-size: 12px;
-    padding: 8px 12px;
-    bottom: 15px;
-    right: 15px;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 }
 
-/* Media Queries untuk perangkat menengah seperti tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .content {
-    padding: 30px;
-    max-width: 80%;
-  }
-
+@media (max-width: 480px) {
   .content h1 {
-    font-size: 40px;
+    font-size: 2.2rem;
   }
-
+  
   .content p {
-    font-size: 18px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
   }
-
+  
   .btn {
-    padding: 10px 18px;
-    font-size: 16px;
+    padding: 10px 24px;
+    font-size: 0.9rem;
   }
-
-  #music-button {
-    font-size: 13px;
-    padding: 9px 13px;
-    bottom: 18px;
-    right: 18px;
+  
+  .footer-text {
+    font-size: 0.8rem;
+    bottom: 20px;
   }
 }
