@@ -17,61 +17,73 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <span class="brand-text">Pesisir Barat</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-  
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Wisata
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pantai.html">Pantai</a></li>
-              <li><a class="dropdown-item" href="airterjun.html">Eksplorasi Alam</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="wisatareligi.html">Wisata Religi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="galeri.html">Galeri</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#penginapan">Penginapan</a>
-          </li>
-        </ul>
-        
-        <form class="d-flex me-3" role="search">
-          <div class="search-box">
-            <input class="form-control me-2" type="search" placeholder="Cari..." aria-label="Search">
-            <button class="btn btn-search" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </form>
-  
-        <button type="button" class="btn btn-login" data-bs-toggle="modal" data-bs-target="#loginModal">
+<!-- Navbar -->
+<!-- Navbar Full Width -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-4"> <!-- Gunakan container-fluid dan tambahkan padding -->
+    <!-- Brand/Logo di sebelah kiri -->
+    <a class="navbar-brand" href="#">
+      <span class="brand-text">Pesisir Barat</span>
+    </a>
+    
+    <!-- Hamburger menu untuk tampilan mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Semua elemen navigasi di sebelah kanan -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Wisata
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="pantai.html">Pantai</a></li>
+            <li><a class="dropdown-item" href="airterjun.html">Eksplorasi Alam</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="wisatareligi.html">Wisata Religi</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="galeri.html">Galeri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="penginapan.html">Penginapan</a>
+        </li>
+      </ul>
+      
+      <!-- Form pencarian -->
+      <form class="d-flex mx-2" role="search" onsubmit="return false;">
+        <div class="search-box">
+          <input id="searchInput" class="form-control" type="search" placeholder="Cari aktivitas..." aria-label="Search">
+        </div>
+      </form>
+      
+
+      
+      <!-- Tombol Login dan Registrasi -->
+      <div class="auth-buttons">
+        <button type="button" class="btn btn-login me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
           <i class="bi bi-person-circle me-1"></i> Login
-        </button>  
+        </button>
+        <button type="button" class="btn btn-login" data-bs-toggle="modal" data-bs-target="#RegistrasiModal">
+          <i class="bi bi-person-circle me-1"></i> Registrasi
+        </button>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Form Login -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <form action="proses_login.php" method="post">
+        <form action="krui1.html" method="get">
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">Login Pengunjung</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
@@ -95,10 +107,74 @@
               <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
               <label class="form-check-label" for="remember">Ingat saya</label>
             </div>
+             <div class="text-center mb-3">
+            <p class="mb-0">Belum punya akun? <a href="krui1.html" data-bs-toggle="modal" data-bs-target="#RegistrasiModal" data-bs-dismiss="modal">Daftar di sini</a></p>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
             <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right me-1"></i> Masuk</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Form Registrasi -->
+  <div class="modal fade" id="RegistrasiModal" tabindex="-1" aria-labelledby="RegistrasiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form action="krui1.html" method="get">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Registrasi Pengunjung</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="email" class="form-label">Nama Lengkap</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="text" class="form-control" id="email" name="email" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Nomor Telepon</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Kata Sandi</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Konfirmasi Kata Sandi</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
+              <label class="form-check-label" for="remember">Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku</label>
+            </div>
+          </div>
+          <div class="text-center mb-3">
+            <p class="mb-0">Sudah punya akun? <a href="krui1.html" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login di sini</a></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right me-1"></i> Daftar</button>
           </div>
         </form>
       </div>
@@ -114,27 +190,27 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="krui6.jpg" class="d-block w-100" alt="Pantai Pesisir Barat">
+        <img src="img/krui6.jpg" class="d-block w-100" alt="Pantai Pesisir Barat">
         <div class="carousel-caption">
           <h1 data-aos="fade-up" data-aos-delay="100">Selamat Datang di Pesisir Barat</h1>
           <p data-aos="fade-up" data-aos-delay="200">Surga tersembunyi di ujung barat Sumatera</p>
-          <a href="#tentang" class="btn btn-explore" data-aos="fade-up" data-aos-delay="300">Jelajahi</a>
+          <a href="airterjun.html" class="btn btn-explore" data-aos="fade-up" data-aos-delay="300">Jelajahi</a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="krui9.jpg" class="d-block w-100" alt="Pemandangan Pantai">
+        <img src="img/krui9.jpg" class="d-block w-100" alt="Pemandangan Pantai">
         <div class="carousel-caption">
           <h1 data-aos="fade-up" data-aos-delay="100">Pantai-Pantai Eksotis</h1>
           <p data-aos="fade-up" data-aos-delay="200">Nikmati keindahan pasir putih dan air laut yang jernih</p>
-          <a href="#pantai" class="btn btn-explore" data-aos="fade-up" data-aos-delay="300">Lihat Pantai</a>
+          <a href="pantai.html" class="btn btn-explore" data-aos="fade-up" data-aos-delay="300">Lihat Pantai</a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="krui8.jpg" class="d-block w-100" alt="Surfing di Pesisir Barat">
+        <img src="img/krui8.jpg" class="d-block w-100" alt="Surfing di Pesisir Barat">
         <div class="carousel-caption">
           <h1 data-aos="fade-up" data-aos-delay="100">Surga Bagi Peselancar</h1>
           <p data-aos="fade-up" data-aos-delay="200">Ombak kelas dunia menanti petualanganmu</p>
-          <a href="#aktivitas" class="btn btn-explore" data-aos="fade-up" data-aos-delay="300">Mulai Surfing</a>
+          <a href="tanjungsetia.html" class="btn btn-explore" data-aos="fade-up" data-aos-delay="300">Mulai Surfing</a>
         </div>
       </div>
     </div>
@@ -158,7 +234,7 @@
       <div class="row align-items-center">
         <div class="col-md-6" data-aos="fade-right">
           <div class="tentang-img">
-            <img src="labuhanjkung.jpg" alt="Pesisir Barat" class="img-fluid rounded">
+            <img src="img/labuhanjkung.jpg" alt="Pesisir Barat" class="img-fluid rounded">
           </div>
         </div>
         <div class="col-md-6" data-aos="fade-left">
@@ -190,7 +266,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="100">
           <div class="aktivitas-card">
             <div class="card-img">
-              <img src="th.jpg" class="img-fluid" alt="Surfing">
+              <img src="img/th.jpg" class="img-fluid" alt="Surfing">
             </div>
             <div class="card-content">
               <h3>Surfing</h3>
@@ -203,7 +279,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="200">
           <div class="aktivitas-card">
             <div class="card-img">
-              <img src="River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg" class="img-fluid" alt="River Tubing">
+              <img src=" img/River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg" class="img-fluid" alt="River Tubing">
             </div>
             <div class="card-content">
               <h3>River Tubing</h3>
@@ -216,7 +292,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
           <div class="aktivitas-card">
             <div class="card-img">
-              <img src="th (15).jpeg" class="img-fluid" alt="Camping">
+              <img src="img/th (15).jpeg" class="img-fluid" alt="Camping">
             </div>
             <div class="card-content">
               <h3>Camping</h3>
@@ -240,14 +316,14 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="100">
           <div class="pantai-card">
             <div class="card-img">
-              <img src="labuhanjkung.jpg" class="img-fluid" alt="Labuhan Jukung">
+              <img src="img/labuhanjkung.jpg" class="img-fluid" alt="Labuhan Jukung">
               <div class="overlay">
                 <h3>Labuhan Jukung</h3>
               </div>
             </div>
             <div class="card-content">
               <p>Pantai dengan pemandangan matahari terbenam yang memukau, cocok untuk berenang dan bermain pasir.</p>
-              <a href="labuhanjukung.html" class="btn-book">Lihat Detail</a>
+              <a href="img/labuhanjukung.html" class="btn-book">Lihat Detail</a>
             </div>
           </div>
         </div>
@@ -255,7 +331,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="200">
           <div class="pantai-card">
             <div class="card-img">
-              <img src="trip-ke-pulau-pisang-lampung.jpg" class="img-fluid" alt="Pulau Pisang">
+              <img src="img/trip-ke-pulau-pisang-lampung.jpg" class="img-fluid" alt="Pulau Pisang">
               <div class="overlay">
                 <h3>pantai Tanjung Setia</h3>
               </div>
@@ -270,7 +346,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
           <div class="pantai-card">
             <div class="card-img">
-              <img src="pantaimandiri.jpg" class="img-fluid" alt="Pantai Mandiri">
+              <img src="img/pantaimandiri.jpg" class="img-fluid" alt="Pantai Mandiri">
               <div class="overlay">
                 <h3>Pantai Mandiri</h3>
               </div>
@@ -296,7 +372,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="100">
           <div class="villa-card">
             <div class="card-img">
-              <img src="sartika.jpg" class="img-fluid" alt="Villa Sartika">
+              <img src="img/sartika.jpg" class="img-fluid" alt="Villa Sartika">
               <div class="villa-rating">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
@@ -320,7 +396,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="200">
           <div class="villa-card">
             <div class="card-img">
-              <img src="beocean-krui.jpg" class="img-fluid" alt="Beocean Krui">
+              <img src="img/beocean-krui.jpg" class="img-fluid" alt="Beocean Krui">
               <div class="villa-rating">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
@@ -344,7 +420,7 @@
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
           <div class="villa-card">
             <div class="card-img">
-              <img src="palma.jpg" class="img-fluid" alt="Palma Beach Resort">
+              <img src="img/palma.jpg" class="img-fluid" alt="Palma Beach Resort">
               <div class="villa-rating">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
@@ -439,64 +515,77 @@
   </section>
   
   <!-- Footer -->
-  <footer class="site-footer">
+ <footer class="site-footer ">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-info">
+          <h3>Pesisir Barat</h3>
+          <p>
+            Surga tersembunyi di ujung barat Pulau Sumatera dengan keindahan alam yang memukau dan budaya yang kaya.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-links">
+          <h4>Tautan</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#pantai">Pantai</a></li>
+            <li><a href="#aktivitas">Aktivitas</a></li>
+            <li><a href="#penginapan">Penginapan</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-links">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="#">Paket Wisata</a></li>
+            <li><a href="#">Reservasi Hotel</a></li>
+            <li><a href="#">Rental Kendaraan</a></li>
+            <li><a href="#">Tour Guide</a></li>
+            <li><a href="#">Peralatan Surfing</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-newsletter">
+          <h4>Berlangganan</h4>
+          <p>Dapatkan info terbaru dan promo menarik</p>
+          <form>
+            <input type="email" placeholder="Email Anda">
+            <input type="submit" value="Subscribe">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom text-center">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="footer-info">
-            <h3>Pesisir Barat</h3>
-            <p>
-              Surga tersembunyi di ujung barat Pulau Sumatera dengan keindahan alam yang memukau dan budaya yang kaya.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6">
-          <div class="footer-links">
-            <h4>Tautan</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#tentang">Tentang</a></li>
-              <li><a href="#pantai">Pantai</a></li>
-              <li><a href="#aktivitas">Aktivitas</a></li>
-              <li><a href="#penginapan">Penginapan</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-links">
-            <h4>Layanan</h4>
-            <ul>
-              <li><a href="#">Paket Wisata</a></li>
-              <li><a href="#">Reservasi Hotel</a></li>
-              <li><a href="#">Rental Kendaraan</a></li>
-              <li><a href="#">Tour Guide</a></li>
-              <li><a href="#">Peralatan Surfing</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-newsletter">
-            <h4>Berlangganan</h4>
-            <p>Dapatkan info terbaru dan promo menarik</p>
-            <form>
-              <input type="email" placeholder="Email Anda"><input type="submit" value="Subscribe">
-            </form>
-          </div>
+        <div class="col-12">
+          <p class="footer-text">© 2025 Pariwisata Pesisir Barat • Dibuat dengan <span class="heart">❤</span> oleh AMR</p>
+          <div class="social-icons">
+            <a href="amirullah58632@gmail.com" class="social-icon" title="Email Kami">
+              <i class="bi bi-envelope"></i>
+            </a>
+            <a href="https://www.instagram.com/amirrrrrr_1?igsh=MWV1dzMzczlxY2U1Yg==" class="social-icon" target="_blank" rel="noopener" title="Instagram Pesisir Barat">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@amir-i1e6m?si=S67q0kjDxdpSbSVL" class="social-icon" target="_blank" rel="noopener" title="YouTube Pesisir Barat">
+              <i class="bi bi-youtube"></i>
+            </a>
         </div>
       </div>
     </div>
-    
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="copyright">
-          &copy; 2025 <strong>Pariwisata Pesisir Barat</strong> • Dibuat dengan ❤️ oleh AMR
-        </div>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
   
   <!-- Audio musik -->
   <audio id="bgmusic" loop>

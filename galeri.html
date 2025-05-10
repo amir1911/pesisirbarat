@@ -244,12 +244,23 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1 class="my-title">Galeri Pesisir Barat</h1>
-            <p class="subtitle">Keindahan dan Keunikan Pesisir Barat Lampung</p>
-        </div>
-    </header>
+    <header class="bg-blue-800 text-white text-center py-6">
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Tombol kembali -->
+    <a href="pantai.html" class="text-blue-300 hover:text-white text-2xl">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+
+    <!-- Judul di tengah -->
+    <div class="flex-1 text-center">
+      <h1 class="text-4xl font-bold">Pantai Mandiri</h1>
+      <p class="text-lg mt-2">Destinasi Selancar dan Alam Eksotis di Krui, Lampung</p>
+    </div>
+
+    <!-- Spacer kanan agar judul tetap tengah -->
+    <div class="w-[2rem]"></div>
+  </div>
+</header>
 
     <div class="gallery-filter">
         <button class="filter-btn active" data-filter="all">Semua</button>
@@ -260,141 +271,141 @@
     </div>
     
     <div class="masonry-container">
-        <div class="masonry-item" data-category="pantai" onclick="openModal('tanjungsetia.jpg', 'Pantai Tanjung Setia')">
-            <img src="tanjungsetia.jpg" alt="Pantai Tanjung Setia">
+        <div class="masonry-item" data-category="pantai" onclick="openModal('img/tanjungsetia.jpg', 'Pantai Tanjung Setia')">
+            <img src="img/tanjungsetia.jpg" alt="Pantai Tanjung Setia">
             <div class="img-overlay">
                 <h3>Pantai Tanjung Setia</h3>
                 <p>Surga bagi para peselancar</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="pantai" onclick="openModal('labuhanjkung.jpg', 'Pantai Labuhan Jukung')">
-            <img src="labuhanjkung.jpg" alt="Pantai Labuhan Jukung">
+        <div class="masonry-item" data-category="pantai" onclick="openModal('img/labuhanjkung.jpg', 'Pantai Labuhan Jukung')">
+            <img src="img/labuhanjkung.jpg" alt="Pantai Labuhan Jukung">
             <div class="img-overlay">
                 <h3>Pantai Labuhan Jukung</h3>
                 <p>Pantai dengan pemandangan sunset yang indah</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="wisata" onclick="openModal('trip-ke-pulau-pisang-lampung.jpg', 'Pulau Pisang')">
-            <img src="trip-ke-pulau-pisang-lampung.jpg" alt="Pulau Pisang">
+        <div class="masonry-item" data-category="wisata" onclick="openModal('img/trip-ke-pulau-pisang-lampung.jpg', 'Pulau Pisang')">
+            <img src="img/trip-ke-pulau-pisang-lampung.jpg" alt="Pulau Pisang">
             <div class="img-overlay">
                 <h3>Pulau Pisang</h3>
                 <p>Pulau kecil dengan keindahan alam yang masih asri</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="wisata" onclick="openModal('River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg', 'River Tubing')">
-            <img src="River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg" alt="Sungai Way Biha">
+        <div class="masonry-item" data-category="wisata" onclick="openModal('img/River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg', 'River Tubing')">
+            <img src="img/River-Tubing-di-Sungai-Way-Biha-Pesisir-Barat-kelilinglampung.net-3.jpg" alt="Sungai Way Biha">
             <div class="img-overlay">
                 <h3>River Tubing Sungai Way Biha</h3>
                 <p>Petualangan seru di aliran sungai yang jernih</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/800/600', 'Pantai Mandiri')">
-            <img src="mandiri.jpg" alt="Pantai Mandiri">
+        <div class="masonry-item" data-category="pantai" onclick="openModal('img/mandiri.jpg', 'Pantai Mandiri')">
+            <img src="img/mandiri.jpg" alt="Pantai Mandiri">
             <div class="img-overlay">
                 <h3>Pantai Mandiri</h3>
                 <p>Pantai dengan pasir putih dan air yang jernih</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="budaya" onclick="openModal('/api/placeholder/800/700', 'Kebudayaan Lampung')">
-            <img src="krui7.jpg" alt="Kebudayaan Lampung">
+        <div class="masonry-item" data-category="budaya" onclick="openModal('img/budaya.jpg', 'Kebudayaan Lampung')">
+            <img src="img/budaya.jpg" alt="Kebudayaan Lampung">
             <div class="img-overlay">
                 <h3>Kebudayaan Pesisir Barat</h3>
                 <p>Warisan budaya yang kaya dan beragam</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/900/600', 'Krui')">
-            <img src="krui8.jpg" alt="Krui">
+        <div class="masonry-item" data-category="wisata" onclick="openModal('img/krui8.jpg', 'Krui')">
+            <img src="img/krui8.jpg" alt="Krui">
             <div class="img-overlay">
                 <h3>Krui</h3>
                 <p>Ibukota Kabupaten Pesisir Barat</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="kuliner" onclick="openModal('/api/placeholder/800/600', 'Kuliner Pesisir Barat')">
-            <img src="bukitselalau.html" alt="Kuliner Pesisir Barat">
+        <div class="masonry-item" data-category="kuliner" onclick="openModal('img/bukitselalau.jpg', 'Bukit Selalau')">
+            <img src="img/bukitselalau.jpg" alt="Kuliner Pesisir Barat">
             <div class="img-overlay">
-                <h3>Kuliner Khas</h3>
-                <p>Kelezatan makanan khas Pesisir Barat</p>
+                <h3>Bukit Selalau</h3>
+                <p>Sunsset Bukit SElalau</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/800/900', 'Air Terjun')">
-            <img src="sartika.jpg" alt="Air Terjun">
+        <div class="masonry-item" data-category="wisata" onclick="openModal('img/airterjun.jpg', 'Air Terjun')">
+            <img src="img/airterjun.jpg" alt="Air Terjun">
             <div class="img-overlay">
-                <h3>Air Terjun Way Lalaan</h3>
+                <h3>Air Terjun </h3>
                 <p>Keindahan air terjun di tengah hutan</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/900/700', 'Pantai Tembakak')">
-            <img src="mandiri.jpg" alt="Pantai Tembakak">
+        <div class="masonry-item" data-category="pantai" onclick="openModal('img/mandiri1.jpg', 'Pantai mandiri')">
+            <img src="img/mandiri1.jpg" alt="Pantai Tembakak">
             <div class="img-overlay">
-                <h3>Pantai Tembakak</h3>
+                <h3>Pantai Mandiri</h3>
                 <p>Pantai dengan ombak yang tenang</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="budaya" onclick="openModal('/api/placeholder/800/800', 'Tari Tradisional')">
-            <img src="mandiri3.jpg" alt="Tari Tradisional">
+        <div class="masonry-item" data-category="budaya" onclick="openModal('img/budaya1.jpg', 'Tari Tradisional')">
+            <img src="img/budaya1.jpg" alt="Tari Tradisional">
             <div class="img-overlay">
                 <h3>Tari Tradisional</h3>
                 <p>Kesenian tari khas Lampung</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/800/1000', 'Wisata Alam')">
-            <img src="tanjungjati.jpg" alt="Wisata Alam">
+        <div class="masonry-item" data-category="wisata" onclick="openModal('img/tanjungjati.jpg', 'Wisata Alam')">
+            <img src="img/tanjungjati.jpg" alt="Wisata Alam">
             <div class="img-overlay">
                 <h3>Wisata Alam</h3>
                 <p>Keindahan alam Pesisir Barat</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/900/600', 'Pantai Karang Nyimbor')">
-            <img src="tanjungsetia.jpg" alt="Pantai Karang Nyimbor">
+        <div class="masonry-item" data-category="pantai" onclick="openModal('img/tanjungsetia.jpg', 'Pantai Tanjung Jati')">
+            <img src="img/tanjungsetia.jpg" alt="Pantai Karang Nyimbor">
             <div class="img-overlay">
-                <h3>Pantai Karang Nyimbor</h3>
+                <h3>Pantai Jati</h3>
                 <p>Pantai dengan formasi karang yang unik</p>
             </div>
         </div>
         <div class="masonry-item" data-category="kuliner" onclick="openModal('/api/placeholder/800/800', 'Seafood')">
-            <img src="bukitselalau.jpg" alt="Seafood">
+            <img src="img/bukitselalau.jpg" alt="Seafood">
             <div class="img-overlay">
                 <h3>Seafood Segar</h3>
                 <p>Kelezatan hidangan laut Pesisir Barat</p>
             </div>
         </div>
         <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/800/700', 'Taman Nasional')">
-            <img src="th (14).jpeg" alt="Taman Nasional">
+            <img src="img/th (14).jpeg" alt="Taman Nasional">
             <div class="img-overlay">
                 <h3>Taman Nasional Bukit Barisan Selatan</h3>
                 <p>Keanekaragaman hayati yang menakjubkan</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="budaya" onclick="openModal('/api/placeholder/800/600', 'Rumah Adat')">
-            <img src="bimbin.jpg" alt="Rumah Adat">
+        <div class="masonry-item" data-category="budaya" onclick="openModal('img/bimbin.jpg', 'Sungai')">
+            <img src="img/bimbin.jpg" alt="Rumah Adat">
             <div class="img-overlay">
-                <h3>Rumah Adat Lampung</h3>
-                <p>Arsitektur tradisional yang khas</p>
+                <h3>Way Bimbin</h3>
+                <p>pemandangan alam yang menyegarkan</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/800/800', 'Pantai Way Redak')">
-            <img src="batutihang.jpg" alt="Pantai Way Redak">
+        <div class="masonry-item" data-category="pantai" onclick="openModal('img/goamatu1.jpg', 'Goa Matu')">
+            <img src="img/goamatu1.jpg" alt="Pantai Way Redak">
             <div class="img-overlay">
-                <h3>Pantai Way Redak</h3>
-                <p>Pantai tersembunyi dengan keindahan alam yang masih asri</p>
+                <h3>Goa Matu</h3>
+                <p>goa Pesisir Barat</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="wisata" onclick="openModal('/api/placeholder/900/700', 'Pemandangan Alam')">
-            <img src="airterjun.jpg" alt="Pemandangan Alam">
+        <div class="masonry-item" data-category="wisata" onclick="openModal('img/aminnullah.jpg', 'ziarah')">
+            <img src="img/aminnullah.jpg" alt="Pemandangan Alam">
             <div class="img-overlay">
-                <h3>Pemandangan Alam</h3>
-                <p>Keindahan lanskap Pesisir Barat</p>
+                <h3>Wisata Religi</h3>
+                <p>Syech aminnullah</p>
             </div>
         </div>
         <div class="masonry-item" data-category="pantai" onclick="openModal('/api/placeholder/800/900', 'Pantai Walur')">
-            <img src="makamgajahmada.jpeg" alt="Pantai Walur">
+            <img src="img/sartika3.jpg" alt="Pantai Walur">
             <div class="img-overlay">
                 <h3>Pantai Walur</h3>
                 <p>Pantai dengan tebing karang yang indah</p>
             </div>
         </div>
-        <div class="masonry-item" data-category="kuliner" onclick="openModal('/api/placeholder/800/600', 'Kuliner Tradisional')">
-            <img src="krui2.jpg" alt="Kuliner Tradisional">
+        <div class="masonry-item" data-category="kuliner" onclick="openModal('img/krui5.jpg', 'krui')">
+            <img src="img/krui5.jpg" alt="Kuliner Tradisional">
             <div class="img-overlay">
                 <h3>Kuliner Tradisional</h3>
                 <p>Kekayaan cita rasa masakan tradisional</p>

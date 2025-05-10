@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link ke Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <title>Pantai Tanjung Setia - Pesisir Barat</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     .hero-bg {
-      background-image: url('tanjungsetia.jpg'); /* Ganti dengan foto Pantai Tanjung Setia */
+      background-image: url('img/surfing1.jpg'); /* Ganti dengan foto Pantai Tanjung Setia */
       background-size: cover;
       background-position: center;
       height: 90vh;
@@ -16,12 +18,26 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <header class="bg-blue-800 text-white p-6 shadow-lg">
-    <div class="container mx-auto text-center">
+
+
+<header class="bg-blue-800 text-white p-6 shadow-lg">
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Tombol kembali -->
+    <a href="pantai.html" class="text-blue-300 hover:text-white text-2xl">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+
+    <!-- Judul di tengah -->
+    <div class="flex-1 text-center">
       <h1 class="text-4xl font-bold">Pantai Tanjung Setia</h1>
       <p class="text-lg mt-2">Destinasi Selancar dan Keindahan Alam di Krui, Lampung</p>
     </div>
-  </header>
+
+    <!-- Spacer kanan agar judul tetap tengah -->
+    <div class="w-[2rem]"></div>
+  </div>
+</header>
+
 
   <section class="hero-bg flex items-center justify-center text-white text-center">
     <div class="bg-black bg-opacity-50 p-8 rounded-xl">
@@ -52,11 +68,11 @@
     <h2 class="text-2xl font-bold mb-4 text-blue-800">Galeri Pantai (Video)</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-9">
       <video controls class="rounded-xl shadow-md w-full h-90 object-cover">
-        <source src="tanjungsetia.mp4" type="video/mp4">
+        <source src="vidio/tanjungsetia.mp4" type="video/mp4">
         Browser Anda tidak mendukung tag video.
       </video>
       <video controls class="rounded-xl shadow-md w-full h-85 object-cover">
-        <source src="tanjungsetia1.mp4" type="video/mp4">
+        <source src="vidio/tanjungsetia1.mp4" type="video/mp4">
         Browser Anda tidak mendukung tag video.
       </video>
     </div>

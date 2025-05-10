@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
     <title>Pesona Pantai Pesisir Barat</title>
     <style>
         * {
@@ -32,7 +38,7 @@
         }
         
         .hero {
-            background-image: url('krui2.jpg'); /* atau .png, .webp, sesuai nama dan format file */
+            background-image: url('img/krui2.jpg'); /* atau .png, .webp, sesuai nama dan format file */
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -272,9 +278,14 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Pesona Pantai Pesisir Barat</h1>
-        <p>Jelajahi Keindahan Pantai-Pantai Eksotis</p>
+    <header class="d-flex align-items-center p-3">
+        <a href="krui1.html" class="btn btn-outline-light me-3">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+        <div class="text-center w-100">
+            <h1 class="mb-0">Pesona Pantai Pesisir Barat</h1>
+            <p class="mb-0">Jelajahi Keindahan Pantai-Pantai Eksotis</p>
+        </div>
     </header>
     
     <div class="container">
@@ -293,7 +304,7 @@
             <div class="beaches-grid" id="beaches">
                 <!-- Pantai Labuhan Jukung -->
                 <div class="beach-card" onclick="showDetail('labuhan-jukung')">
-                    <img src="labuhanjkung.jpg" alt="Pantai Labuhan Jukung" class="beach-img">
+                    <img src="img/labuhanjkung.jpg" alt="Pantai Labuhan Jukung" class="beach-img">
                     <div class="beach-info">
                         <h2>Pantai Labuhan Jukung</h2>
                         <div class="location">📍 Pesisir Barat, Lampung</div>
@@ -304,7 +315,7 @@
                 
                 <!-- Pantai Tanjung Setia -->
                 <div class="beach-card" onclick="showDetail('tanjung-setia')">
-                    <img src="tanjungsetia.jpg" alt="Pantai Tanjung Setia" class="beach-img">
+                    <img src="img/tanjungsetia.jpg" alt="Pantai Tanjung Setia" class="beach-img">
                     <div class="beach-info">
                         <h2>Pantai Tanjung Setia</h2>
                         <div class="location">📍 Lampung, Indonesia</div>
@@ -315,7 +326,7 @@
                 
                 <!-- Pantai Bukit Selalau -->
                 <div class="beach-card" onclick="showDetail('bukit-selalau')">
-                    <img src="bukitselalau.jpg" alt="Pantai Bukit Selalau" class="beach-img">
+                    <img src="img/bukitselalau.jpg" alt="Pantai Bukit Selalau" class="beach-img">
                     <div class="beach-info">
                         <h2>Pantai Bukit Selalau</h2>
                         <div class="location">📍 Pesisir Barat, Lampung</div>
@@ -326,7 +337,7 @@
                 
                 <!-- Pantai Batu Tihang -->
                 <div class="beach-card" onclick="showDetail('batu-tihang')">
-                    <img src="batutihang.jpg" alt="Pantai Batu Tihang" class="beach-img">
+                    <img src="img/batutihang.jpg" alt="Pantai Batu Tihang" class="beach-img">
                     <div class="beach-info">
                         <h2>Pantai Batu Tihang</h2>
                         <div class="location">📍 Pesisir Barat, Lampung</div>
@@ -337,7 +348,7 @@
                 
                 <!-- Pantai Mandiri -->
                 <div class="beach-card" onclick="showDetail('mandiri')">
-                    <img src="mandiri.jpg" alt="Pantai Mandiri" class="beach-img">
+                    <img src="img/mandiri.jpg" alt="Pantai Mandiri" class="beach-img">
                     <div class="beach-info">
                         <h2>Pantai Mandiri</h2>
                         <div class="location">📍 Pesisir Barat, Lampung</div>
@@ -348,7 +359,7 @@
                 
                 <!-- Pantai Tanjung Jati -->
                 <div class="beach-card" onclick="showDetail('tanjung-jati')">
-                    <img src="tanjungjati.jpg" alt="Pantai Tanjung Jati" class="beach-img">
+                    <img src="img/tanjungjati.jpg" alt="Pantai Tanjung Jati" class="beach-img">
                     <div class="beach-info">
                         <h2>Pantai Tanjung Jati</h2>
                         <div class="location">📍 Pesisir Barat, Lampung</div>
@@ -360,6 +371,7 @@
         </div>
         
         <!-- Detail Pantai Labuhan Jukung -->
+         
     
     <script>
         function showDetail(id) {
