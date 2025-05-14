@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="krui.css">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
   <!-- Navbar -->
@@ -83,7 +85,8 @@
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <form action="krui1.html" method="get">
+       <form action="login.php" method="POST">
+
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">Login Pengunjung</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
@@ -119,67 +122,92 @@
       </div>
     </div>
   </div>
+
   <!-- Form Registrasi -->
   <div class="modal fade" id="RegistrasiModal" tabindex="-1" aria-labelledby="RegistrasiModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <form action="krui1.html" method="get">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Registrasi Pengunjung</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="email" class="form-label">Nama Lengkap</label>
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                <input type="text" class="form-control" id="email" name="email" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Email</label>
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                <input type="password" class="form-control" id="password" name="password" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Nomor Telepon</label>
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-phone"></i></span>
-                <input type="password" class="form-control" id="password" name="password" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Kata Sandi</label>
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                <input type="password" class="form-control" id="password" name="password" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Konfirmasi Kata Sandi</label>
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                <input type="password" class="form-control" id="password" name="password" required>
-              </div>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
-              <label class="form-check-label" for="remember">Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku</label>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form action="register.php" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="RegistrasiModalLabel">Registrasi Pengunjung</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+
+          <!-- Nama Lengkap -->
+          <div class="mb-3">
+            <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
             </div>
           </div>
-          <div class="text-center mb-3">
-            <p class="mb-0">Sudah punya akun? <a href="krui1.html" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login di sini</a></p>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right me-1"></i> Daftar</button>
+
+          <!-- Nomor Telepon -->
+          <div class="mb-3">
+            <label for="telepon" class="form-label">Nomor Telepon</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-phone"></i></span>
+              <input type="text" class="form-control" id="telepon" name="telepon" required>
+            </div>
           </div>
-        </form>
-      </div>
+
+          <!-- Kata Sandi -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Kata Sandi</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+          </div>
+
+          <!-- Konfirmasi Kata Sandi -->
+          <div class="mb-3">
+            <label for="konfirmasi_password" class="form-label">Konfirmasi Kata Sandi</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+              <input type="password" class="form-control" id="konfirmasi_password" name="konfirmasi_password" required>
+            </div>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="setuju" id="remember" name="remember" required>
+            <label class="form-check-label" for="remember">
+              Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku
+            </label>
+          </div>
+
+        </div>
+
+        <div class="text-center mb-3">
+          <p class="mb-0">Sudah punya akun? 
+            <a href="krui1.html" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">
+              Login di sini
+            </a>
+          </p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Daftar
+          </button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
+
 
   <!-- Hero Carousel -->
   <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -248,7 +276,7 @@
             <p>
               Dari Pantai Tanjung Setia yang terkenal dengan ombaknya, hingga Pulau Pisang yang eksotis, semua menunggu untuk dijelajahi oleh para petualang seperti Anda!
             </p>
-            <a href="#" class="btn btn-more">Pelajari Lebih Lanjut</a>
+            <a href="pantai.html" class="btn btn-more">Pelajari Lebih Lanjut</a>
           </div>
         </div>
       </div>
@@ -388,7 +416,7 @@
                 <span><i class="bi bi-cash"></i> Rp 500k/malam</span>
               </div>
               <p>Villa nyaman dengan pemandangan pantai yang indah, fasilitas lengkap dan pelayanan ramah.</p>
-              <a href="#" class="btn-book">Lihat Detail</a>
+              <a href="sartika.html" class="btn-book">Lihat Detail</a>
             </div>
           </div>
         </div>
@@ -412,7 +440,7 @@
                 <span><i class="bi bi-cash"></i> Rp 650k/malam</span>
               </div>
               <p>Resort tepi pantai modern dengan kolam renang dan akses langsung ke pantai untuk surfing.</p>
-              <a href="#" class="btn-book">Lihat Detail</a>
+              <a href="penginapan.html" class="btn-book">Lihat Detail</a>
             </div>
           </div>
         </div>
@@ -436,7 +464,7 @@
                 <span><i class="bi bi-cash"></i> Rp 800k/malam</span>
               </div>
               <p>Resort mewah dengan fasilitas lengkap, restoran, spa, dan pemandangan laut yang spektakuler.</p>
-              <a href="#" class="btn-book">Lihat Detail</a>
+              <a href="penginapan.html" class="btn-book">Lihat Detail</a>
             </div>
           </div>
         </div>
@@ -481,34 +509,37 @@
             </div>
 
             <div class="social-links">
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-twitter"></i></a>
-              <a href="#"><i class="bi bi-youtube"></i></a>
+              <a href="https://www.tiktok.com/@diskominfokpb?_t=ZS-8wLvcQg8wnk&_r=1" title="Kunjungi TikTok" target="_blank">
+                  <i class="fab fa-tiktok"></i>
+              </a>
+
+              <a href="https://www.instagram.com/pemkabpesisirbarat?igsh=MW5pZjd5YTlxb2IzYg=="><i class="bi bi-instagram"></i></a>
+              <a href="https://pesisirbaratkab.go.id/?fbclid=PAZXh0bgNhZW0CMTEAAaeX-la9g-5BWLNuNF2B6NxhGGkC0eEpmb21gQJtos3gCkc89weDgi30IuyqWA_aem_jB7unjLEP6P-OSAqnQ2w5w"><i class="bi bi-twitter"></i></a>
+              <a href="https://youtube.com/@pemkabpesisirbarat?si=w53h9GHvGL-DQeAW"><i class="bi bi-youtube"></i></a>
             </div>
           </div>
         </div>
         
         <div class="col-md-6" data-aos="fade-left">
-          <form class="kontak-form">
-            <div class="form-group">
-              <label for="nama">Nama</label>
-              <input type="text" class="form-control" id="nama" placeholder="Nama lengkap">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Alamat email">
-            </div>
-            <div class="form-group">
-              <label for="subjek">Subjek</label>
-              <input type="text" class="form-control" id="subjek" placeholder="Subjek pesan">
-            </div>
-            <div class="form-group">
-              <label for="pesan">Pesan</label>
-              <textarea class="form-control" id="pesan" rows="5" placeholder="Tulis pesan Anda..."></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Kirim Pesan</button>
-          </form>
+       <form class="kontak-form" action="proses_kontak.php" method="post">
+       <div class="form-group">
+    <label for="nama">Nama</label>
+    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama lengkap">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Alamat email">
+  </div>
+  <div class="form-group">
+    <label for="subjek">Subjek</label>
+    <input type="text" class="form-control" id="subjek" name="subjek" placeholder="Subjek pesan">
+  </div>
+  <div class="form-group">
+    <label for="pesan">Pesan</label>
+    <textarea class="form-control" id="pesan" name="pesan" rows="5" placeholder="Tulis pesan Anda..."></textarea>
+  </div>
+  <button type="submit" class="btn-submit">Kirim Pesan</button>
+    </form>
         </div>
       </div>
     </div>
@@ -570,11 +601,12 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <p class="footer-text">© 2025 Pariwisata Pesisir Barat • Dibuat dengan <span class="heart">❤</span> oleh AMR</p>
+          <p class="footer-text">© 2025 Pariwisata Pesisir Barat • Dibuat  <span class="heart">❤</span> oleh AMR</p>
           <div class="social-icons">
-            <a href="amirullah58632@gmail.com" class="social-icon" title="Email Kami">
-              <i class="bi bi-envelope"></i>
+            <a href="https://github.com/amir1911" class="social-icon" title="Kunjungi GitHub Kami" target="_blank">
+             <i class="bi bi-github"></i>
             </a>
+
             <a href="https://www.instagram.com/amirrrrrr_1?igsh=MWV1dzMzczlxY2U1Yg==" class="social-icon" target="_blank" rel="noopener" title="Instagram Pesisir Barat">
               <i class="bi bi-instagram"></i>
             </a>
@@ -639,5 +671,54 @@
       }
     });
   </script>
+
+  <!-- Tambahkan script JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.kontak-form');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah form submit secara default
+        
+        // Ambil nilai dari form
+        const nama = document.getElementById('nama').value;
+        const email = document.getElementById('email').value;
+        const subjek = document.getElementById('subjek').value;
+        const pesan = document.getElementById('pesan').value;
+        
+        // Validasi sederhana
+        if (!nama || !email || !subjek || !pesan) {
+            alert('Semua field harus diisi!');
+            return;
+        }
+        
+        // Buat objek FormData
+        const formData = new FormData();
+        formData.append('nama', nama);
+        formData.append('email', email);
+        formData.append('subjek', subjek);
+        formData.append('pesan', pesan);
+        
+        // Kirim data ke server
+        fetch('proses_kontak.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert(data.message);
+                form.reset(); // Reset form jika berhasil
+            } else {
+                alert(data.message || 'Terjadi kesalahan sistem. Silakan coba lagi.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Terjadi kesalahan sistem. Silakan coba lagi.');
+        });
+    });
+});
+</script>
 </body>
 </html>
