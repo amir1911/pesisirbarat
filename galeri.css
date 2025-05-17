@@ -1,116 +1,236 @@
-.container {
-    width: 80%;
-    margin: 20px auto;
-}
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-.album, .members {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
 
-/* Efek Kenyalan (Bounce) pada Hover Foto */
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
+        header {
+            background: linear-gradient(to right, #005c97, #363795);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-.photo, .member {
-    background: #1e1e1e; /* Warna dark mode */
-    border-radius: 15px;
-    box-shadow: 0 4px 15px #f3f3f3bc;
-    margin: 10px;
-    padding: 10px;
-    width: 220px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("/api/placeholder/1600/400");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 0;
+        }
 
-.photo:hover, .member:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(253, 220, 2, 0.8);
-    animation: bounce 0.5s ease-in-out;
-}
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
 
-/* Foto */
-.photo img, .member img {
-    width: 100%;
-    border-radius: 10px;
-    height: 300px;
-    object-fit: cover;
-}
+        .my-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-/* Nama */
-.photo p, .member p {
-    color: #f8f8f8;
-    font-weight: bold;
-}
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
 
-/* Styling untuk link Instagram */
-.instagram-link {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: #E4405F; /* Warna khas Instagram */
-    transition: transform 0.3s ease, color 0.3s ease;
-}
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
 
-/* Styling untuk ikon Instagram */
-.instagram-link i {
-    font-size: 24px;
-    margin-right: 8px;
-}
+        .filter-btn {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-/* Hover effect */
-.instagram-link:hover {
-    color: #ffffff;
-    transform: scale(1.1);
-}
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #005c97;
+            color: white;
+            border-color: #005c97;
+        }
 
-/* Animasi Zoom In saat Modal Foto Dibuka */
-@keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.7); }
-    to { opacity: 1; transform: scale(1); }
-}
+        .masonry-container {
+            column-count: 1;
+            column-gap: 15px;
+            padding: 20px;
+        }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    text-align: center;
-}
+        @media (min-width: 576px) {
+            .masonry-container {
+                column-count: 2;
+            }
+        }
 
-.modal-content {
-    margin-top: 10%;
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
-    animation: zoomIn 0.5s ease-in-out;
-}
+        @media (min-width: 768px) {
+            .masonry-container {
+                column-count: 3;
+            }
+        }
 
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: rgb(240, 240, 240);
-    cursor: pointer;
-}
+        @media (min-width: 992px) {
+            .masonry-container {
+                column-count: 4;
+            }
+        }
 
-.close:hover {
-    color: red;
-}
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
 
-/* Animasi Tombol */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
+        .masonry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .masonry-item:hover .img-overlay {
+            opacity: 1;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: 50px auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .modal-caption {
+            margin: 20px auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .modal-prev, .modal-next {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 20px;
+        }
+
+        .modal-prev:hover, .modal-next:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }

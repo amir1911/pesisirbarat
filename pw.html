@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form - Pesisir Barat</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #0074b7;
+            --secondary-color: #00a1e4;
+            --accent-color: #ffc045;
+            --text-dark: #2d3748;
+            --text-light: #4a5568;
+            --light-color: #f0f7ff;
+            --white: #ffffff;
+            --gray-light: #f8f9fa;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            background-color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .divider {
+            height: 4px;
+            width: 70px;
+            background: var(--accent-color);
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .kontak-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kontak-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(0, 116, 183, 0.05);
+            z-index: 0;
+        }
+
+        .kontak-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 192, 69, 0.05);
+            z-index: 0;
+        }
+
+        .kontak-info {
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kontak-info p {
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 30px;
+            transition: var(--transition);
+            padding: 15px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--white);
+        }
+
+        .info-item:hover::before {
+            width: 100%;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .info-item:hover i {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: rotateY(360deg);
+        }
+
+        .info-item h4 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .info-item p {
+            color: var(--text-light);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 116, 183, 0.3);
+        }
+
+        /* Contact Form Styles */
+        .kontak-form {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .kontak-form:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .kontak-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .kontak-form label {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .kontak-form .form-control {
+            height: 50px;
+            padding: 10px 20px;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .kontak-form .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+
+        .kontak-form textarea.form-control {
+            min-height: 150px;
+            resize: none;
+        }
+
+        .kontak-form .btn-submit {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .kontak-form .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--secondary-color);
+            transition: var(--transition);
+            z-index: -1;
+            border-radius: 50px;
+        }
+
+        .kontak-form .btn-submit:hover::before {
+            width: 100%;
+        }
+
+        .kontak-form .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 116, 183, 0.3);
+        }
+
+        /* Animation for elements */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        [data-aos="fade-right"], 
+        [data-aos="fade-left"] {
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        [data-aos="fade-left"] {
+            animation-delay: 0.3s;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .kontak-info {
+                margin-bottom: 40px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .kontak-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Form Kontak -->
+    <section id="kontak" class="kontak-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="kontak-info">
+                        <div class="section-header">
+                            <h2>Hubungi Kami</h2>
+                            <div class="divider"></div>
+                        </div>
+                        <p>Kami siap membantu Anda merencanakan perjalanan ke Pesisir Barat. Jangan ragu untuk menghubungi kami untuk informasi wisata terbaik dan rekomendasi perjalanan.</p>
+                        
+                        <div class="info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <h4>Lokasi:</h4>
+                                <p>Dinas Pariwisata, Kabupaten Pesisir Barat, Lampung</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <h4>Email:</h4>
+                                <p>info@pesisirbarat.go.id</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="bi bi-phone"></i>
+                            <div>
+                                <h4>Telepon:</h4>
+                                <p>+62 721 123456</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@diskominfokpb?_t=ZS-8wLvcQg8wnk&_r=1" title="Kunjungi TikTok" target="_blank">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.instagram.com/pemkabpesisirbarat?igsh=MW5pZjd5YTlxb2IzYg==" title="Instagram" target="_blank">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="https://pesisirbaratkab.go.id/" title="Website" target="_blank">
+                                <i class="bi bi-globe"></i>
+                            </a>
+                            <a href="https://youtube.com/@pemkabpesisirbarat?si=w53h9GHvGL-DQeAW" title="YouTube" target="_blank">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left">
+                    <form class="kontak-form" action="proses_kontak.php" method="post">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama lengkap" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Alamat email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subjek">Subjek</label>
+                            <input type="text" class="form-control" id="subjek" name="subjek" placeholder="Subjek pesan" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pesan">Pesan</label>
+                            <textarea class="form-control" id="pesan" name="pesan" rows="5" placeholder="Tulis pesan Anda..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script to simulate AOS behavior -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple script to trigger animations on page load
+            const fadeRight = document.querySelector('[data-aos="fade-right"]');
+            const fadeLeft = document.querySelector('[data-aos="fade-left"]');
+            
+            if (fadeRight) fadeRight.style.animationDelay = '0s';
+            if (fadeLeft) fadeLeft.style.animationDelay = '0.3s';
+        });
+    </script>
+</body>
+</html>
